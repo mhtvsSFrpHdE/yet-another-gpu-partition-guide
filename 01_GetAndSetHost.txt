@@ -9,9 +9,10 @@ $hostGpus = Get-VMHostPartitionableGpu | Select-Object -Property Name,ValidParti
 
 # Set which host gpu to be use in VM
 $targetGpuIndex = 0
+$targetGpuPartitionCountIndex = 0
 $targetGpu = $hostGpus[$targetGpuIndex]
 $targetGpuName = ($targetGpu.Name.Split("\") | Select-Object -SkipLast 1) -join "\"
-$targetValidPartitionCounts = $targetGpu.ValidPartitionCounts[$targetGpuIndex]
+$targetValidPartitionCounts = $targetGpu.ValidPartitionCounts[$targetGpuPartitionCountIndex]
 Set-VMHostPartitionableGpu -Name $targetGpuName -PartitionCount $targetValidPartitionCounts
 
 # Preview which host gpu driver to export
