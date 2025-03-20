@@ -1,0 +1,20 @@
+# Copy driver files from GetAndSetHost.txt $driverExportDir to guest OS
+$driverExportDir = "C:\GpuDriver"
+pnputil /add-driver "$driverExportDir\*.inf" /install
+
+# Preview installed driver list
+$drivers = Get-WindowsDriver -Online -All
+$targetDriver = $drivers | Where-Object { $_.ClassName -EQ "Display" -and $_.ProviderName -Like "NVIDIA" }
+$targetDriver
+
+# Copy driver to HostDriverStore
+$targetDriverIndex = 0
+$driverInstallDir = $targetDriver[$targetDriverIndex].OriginalFileName
+$driverInstallDir = Split-Path $driverInstallDir
+$driverInstallDirName = Split-Path -Leaf $driverInstallDir
+$hostDriverStoreDir = "C:\Windows\System32\HostDriverStore\FileRepository"
+$hostDriverStoreDir = Join-Path $hostDriverStoreDir $driverInstallDirName
+Copy-item -Force -Recurse "$driverInstallDir" -Destination "$hostDriverStoreDir"
+
+# Reboot now, after reboot it should work
+# You can delete "C:\GpuDriver" from Guest OS now
