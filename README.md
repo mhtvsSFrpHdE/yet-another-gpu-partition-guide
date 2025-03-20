@@ -16,4 +16,4 @@ Otherwise give up and swap to newer GPU.
 
 ## Reference
 https://gist.github.com/ThioJoe/56e1c4951be2c1a19b126ec619ec26c4  
-https://docs.nvidia.com/vgpu/latest/pdf/grid-vgpu-user-guide.pdf
+https://docs.nvidia.com/vgpu/latest/pdf/grid-vgpu-user-guide.pdf (page 29)
