@@ -1,0 +1,8 @@
+# If want to remove gpu from VM
+# Use a VM hasn't add gpu partition as sample
+$sampleVM = Get-VM "GuestVmNoGpu"
+$vmName = "Office"
+Remove-VMGpuPartitionAdapter -VMName $vmName
+Set-VM -GuestControlledCacheTypes $sampleVM.GuestControlledCacheTypes -VMName $vmName
+Set-VM -LowMemoryMappedIoSpace $sampleVM.LowMemoryMappedIoSpace -VMName $vmName
+Set-VM -HighMemoryMappedIoSpace $sampleVM.HighMemoryMappedIoSpace -VMName $vmName
