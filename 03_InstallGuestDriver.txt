@@ -4,6 +4,8 @@ $driverExportDir = "C:\GpuDriver"
 # Installed driver may not be reserved on large Windows update
 # It's recommended to keep this folder for future use
 # In case failed to boot after large update, go to safe mode and install again
+#   To use safe mode, you can use virtual machine reset button serval times on boot phase when you see Windows icon
+#   until "Preparing Automatic Repair" shows, and "Startup Settings", "Enable Safe Mode" in these menu
 pnputil /add-driver "$driverExportDir\*.inf" /install
 
 # Preview installed driver list
