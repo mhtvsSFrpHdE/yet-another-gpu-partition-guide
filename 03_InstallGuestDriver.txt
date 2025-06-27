@@ -1,5 +1,9 @@
 # Copy driver files from GetAndSetHost.txt $driverExportDir to guest OS
 $driverExportDir = "C:\GpuDriver"
+
+# Installed driver may not be reserved on large Windows update
+# It's recommended to keep this folder for future use
+# In case failed to boot after large update, go to safe mode and install again
 pnputil /add-driver "$driverExportDir\*.inf" /install
 
 # Preview installed driver list
@@ -17,4 +21,3 @@ $hostDriverStoreDir = Join-Path $hostDriverStoreDir $driverInstallDirName
 Copy-item -Force -Recurse "$driverInstallDir" -Destination "$hostDriverStoreDir"
 
 # Reboot now, after reboot it should work
-# You can delete "C:\GpuDriver" from Guest OS now
