@@ -18,9 +18,10 @@ Set-VMHostPartitionableGpu -Name $targetGpuName -PartitionCount $targetValidPart
 # Preview which host gpu driver to export
 $drivers = Get-WindowsDriver -Online -All
 $targetDriver = $drivers | Where-Object { $_.ClassName -EQ "Display" -and $_.ProviderName -Like "NVIDIA" }
-$targetDriver
 
 # Confirm export that driver
+$targetDriver
+# If multiple, choose one of them
 $targetDriverFileName = $targetDriver[0].Driver
 pnputil /export-driver "$targetDriverFileName" "$driverExportDir"
 
