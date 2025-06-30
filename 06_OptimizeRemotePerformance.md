@@ -114,5 +114,10 @@ Turn on "Spatial AQ" in Sunshine NVENC encoder settings, reduced color blend to 
 To get perfect full color experience, Microsoft remote desktop still a choice, at cost of performance
 
 ## Clipboard sync
-Not yet confirm how to do that  
-Use Syncthing file sync software and paste clipboard to file as a temp solution
+Use Syncthing file sync software and paste clipboard to file like
+- `Clipboard.txt` constantly open with Microsoft Notepad `notepad.exe`
+- `Clipboard.png` edit with Microsoft Paint `mspaint.exe`
+
+https://syncthing.net
+
+Or for simple quick text use `Ctrl+Alt+Shift+V`
