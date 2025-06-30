@@ -1,12 +1,18 @@
-# DO NOT use "Save" as "Automatic Stop Action" in Settings for virtual machine
-# I will use shutdown as auto stop action, require manually set in Hyper-V manager because
-# The following line set stop action doesn't work on LTSC 24H2 (it's not Windows Server edition)
-# Get-ClusterResource -name vmname | Set-ClusterParameter -Name "OfflineAction" -Value 3
-# https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/partition-assign-vm-gpu?tabs=powershell
+## Prerequisite
+**DO NOT** use "Save" as "Automatic Stop Action" in Settings for virtual machine  
+I will use shutdown as auto stop action, require manually set in Hyper-V manager because  
+The following line set stop action doesn't work on LTSC 24H2 (it's not Windows Server edition)  
+```
+Get-ClusterResource -name vmname | Set-ClusterParameter -Name "OfflineAction" -Value 3
+```
+https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/partition-assign-vm-gpu?tabs=powershell
 
-# DO NOT use dynamic RAM, on LTSC 24H2 host, when set dynamic RAM for VM has GpuPartitionAdapeter
-# It will show a hint says doesn't support dynamic RAM.
+**DO NOT** use dynamic RAM, on LTSC 24H2 host, when set dynamic RAM for VM has GpuPartitionAdapeter  
+It will show a hint says doesn't support dynamic RAM.
 
+## Set guest
+```
+# VM name
 $vmName = "GuestVmWithGpu"
 
 $hostGpus = Get-VMHostPartitionableGpu
@@ -42,9 +48,15 @@ Set-VM -LowMemoryMappedIoSpace 1Gb -VMName $vmName
 # This amount is twice the amount that the device must allow for alignment. Upper
 # MMIO space is the address space above approximately 64 GB
 Set-VM -HighMemoryMappedIoSpace 32GB -VMName $vmName
+```
 
-# Now boot VM and copy driver folder
-# Go to InstallGuestDriver
+## Driver
+Now boot VM and copy driver folder exported from host OS  
+Go to InstallGuestDriver
 
-# Check added gpu, this will work only after VM boot
+## Misc
+Check added gpu, work only after VM boot  
+Although in real world this command never be used once
+```
 Get-VMGpuPartitionAdapter -VMName $vmName
+```
