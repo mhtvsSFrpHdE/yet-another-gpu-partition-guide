@@ -45,7 +45,13 @@ The other options do nothing, keep defaults
 https://github.com/VirtualDrivers/Virtual-Display-Driver  
 
 Actually there is nothing to be configured in Virtual Driver Control app  
-just the driver itself is suitable  
+just the driver itself is suitable
+
+Later if Microsoft basic mode shows nothing  
+imagine you now have dual monitor setup on guest OS  
+Go to display settings and play with settings  
+"Show only on 2" of course cause Microsoft basic mode shows nothing  
+but may improve performance for not waste on something not being used
 
 After install, restart Sunshine, tell it to capture your virtual display instead of Hyper-V basic mode:  
 Go to Troubleshooting tab and check Logs
