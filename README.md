@@ -5,7 +5,7 @@ Some of them contains magic values and wrong argument only work for their PC.
 Instead of a script, this repository focus on important steps and why.
 
 ## Usage
-`.txt` file are actually PowerShell commands with comments.  
+PowerShell commands with comments in `.md` markdown file.  
 You can copy and paste, run in a admin permission powershell window directly.  
 Change arguments before paste into powershell window.
 

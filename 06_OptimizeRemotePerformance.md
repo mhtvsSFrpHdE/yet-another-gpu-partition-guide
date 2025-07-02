@@ -11,7 +11,7 @@ All Microsoft method to connect to VM bottlenecks the performance
 - Adds sound, clipboard sync, file transfer compare to basic mode
 - Break graphics compatibility with many applications
 - API limitations, at least can't detect NVENC, DirectDraw and AGP Texture Acceleration not available in `dxdiag`
-- Although use VMBus and doesn't limit by network bandwidth, bug performance even worse than network based Remote Desktop RDP
+- Although use VMBus and doesn't limit by network bandwidth, but performance even worse than network based Remote Desktop RDP
 3. Remote desktop
 - Currently is just enhanced session use network and better performance
 - Require some group policy edit otherwise don't have GPU
@@ -21,6 +21,10 @@ For short, when you have 4K desktop you don't even get smooth Start Menu animati
 Not to mention real heavy applications
 
 # The gaming way
+
+## Before you start
+Enable remote desktop and make sure you can connect to VM with RDP  
+The basic mode may temporary not work during setup
 
 ## Install Sunshine on guest OS
 https://app.lizardbyte.dev/Sunshine  
@@ -81,7 +85,7 @@ https://moonlight-stream.org
 https://github.com/moonlight-stream/moonlight-qt
 
 Moonlight settings:
-- Resolution and FPS: `4K, 60FPS`
+- Resolution and FPS: `4K (1080P if you), 60FPS (more if you)`
 - Video bitrate: `Untouched or whatever you want`
 - Display mode: `Fullscreen`
 - V-Sync: `On`
@@ -105,13 +109,22 @@ My guest OS have multiple IP so it saved wrong information
 1\remoteaddress=<Moonlight client computer IP>
 ```
 
+After connect with Moonlight, you'll also need to change resolution with settings  
+In Advanced display, there is also refresh rate settings can go even higher than 60  
+Just let resolution and refresh rate match settings in Moonlight client
+
 ## YUV420 vs YUV444
 Seems H.264 have lower lantency by opinion from internet  
 YUV 444 only available on H.264 on myside, and decoder doesn't support YUV 444, client side decode performance is poor  
-Nvenc HEVC also use 444 only until 50 series to support 422  
+Nvenc HEVC also use 420 only until 50 series to support 422  
 All of these video encoded protocol have sight color blend which may not important if gaming  
-Turn on "Spatial AQ" in Sunshine NVENC encoder settings, reduced color blend to barely noticeable  
-To get perfect full color experience, Microsoft remote desktop still a choice, at cost of performance
+Turn on "Spatial AQ" in Sunshine NVENC encoder settings, reduced color blend to barely noticeable
+
+To get perfect full color experience, Microsoft remote desktop still a choice  
+to transfer lossless video by use group policy, at cost of performance  
+The drawbacks not at application performance but transfer performance  
+Your app indeed running at 60 FPS in remote environment with [DWMFRAMEINTERVAL](https://learn.microsoft.com/en-us/troubleshoot/windows-server/remote/frame-rate-limited-to-30-fps)  
+but video not make it tranfer at 60 FPS thus laggy
 
 ## Clipboard sync
 Use Syncthing file sync software and paste clipboard to file like
