@@ -58,6 +58,13 @@ Configuration, Audio/Video, NVIDIA NVENC Encoder, Spatial AQ, change to `Enabled
 The other options do nothing, keep defaults
 ```
 
+If you tired to waiting for Sunshine take too long to switch between regular desktop and UAC secure desktop  
+You can disable UAC secure desktop from Local Security Policy (`secpol.msc`)  
+```
+Security Settings - Local Policies - Security Options
+User Account Control: Switch to the secure desktop when prompting for elevation: Disabled
+```
+
 ## Install virtual monitor on guest OS
 https://github.com/VirtualDrivers/Virtual-Display-Driver  
 
