@@ -28,6 +28,13 @@ for example GeForce GTX 10 series, GP107 ~ GP102 chip, 1050 or above, not includ
 If FPS can't reach 60, Microsoft RDP still a good choice.  
 Under 60 FPS, mouse cursor will lag while desktop streaming, Microsoft RDP won't.
 
+If still prefer use desktop streaming, these Moonlight shortcuts might help
+- Toggle client side cursor show / hide: "Ctrl+Alt+Shift+C"
+- Toggle remote side cursor / hide: "Ctrl+Alt+Shift+N"
+
+Sadly these options have no config and "Ctrl+Alt+Shift+C" need to press manually each time reconnect to guest OS  
+"Ctrl+Alt+Shift+N" requires once after reboot and status remains until next guest OS reboot
+
 ## Before you start
 Enable remote desktop and make sure you can connect to VM with RDP  
 The basic mode may temporary not work during setup
