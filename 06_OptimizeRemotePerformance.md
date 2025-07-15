@@ -21,6 +21,12 @@ For short, when you have 4K desktop you don't even get smooth Start Menu animati
 Not to mention real heavy applications
 
 # The gaming way
+This method may requires 4th Gen NVENC cards for 4K 60 FPS desktop streaming,  
+for example GeForce GTX 10 series, GP107 ~ GP102 chip, 1050 or above, not include 1030.
+
+1st Gen NVENC GT 640 can't handle 1080P 60 FPS, only about 1080P 52 FPS.  
+If FPS can't reach 60, Microsoft RDP still a good choice.  
+Under 60 FPS, mouse cursor will lag while desktop streaming, Microsoft RDP won't.
 
 ## Before you start
 Enable remote desktop and make sure you can connect to VM with RDP  
