@@ -140,6 +140,10 @@ set Hyper-V display as secondary monitor and put to right hand side
 start the app, performance will decrease at the beginning  
 then close Virtuam Machine Connection window to restore performance
 
+There is a switch on Hyper-V settings (not VM settings), Enhanced Session Mode Policy  
+to permanently disable enhanced session so you don't need to  
+manually cancel enhanced session when connect to VM
+
 Don't know why this work though
 
 ## YUV420 vs YUV444
