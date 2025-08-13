@@ -140,9 +140,15 @@ set Hyper-V display as secondary monitor and put to right hand side
 start the app, performance will decrease at the beginning  
 then close Virtuam Machine Connection window to restore performance
 
-There is a switch on Hyper-V settings (not VM settings), Enhanced Session Mode Policy  
-to permanently disable enhanced session so you don't need to  
-manually cancel enhanced session when connect to VM
+There is a switch on Hyper-V settings (not VM settings)  
+under User section, uncheck Enhanced Session Mode  
+to disable automatically enhanced session so you don't need to  
+cancel enhanced session each time connect to VM  
+After this you can still manually turn on enhanced session to transfer file
+
+Run this command as admin to quick connect to VM:
+`vmconnect localhost <VM Name>`  
+You can also create a shortcut to vmconnect.exe with arguments and set run as admin for that shourtcut
 
 Don't know why this work though
 
