@@ -133,6 +133,15 @@ After connect with Moonlight, you'll also need to change resolution with setting
 In Advanced display, there is also refresh rate settings can go even higher than 60  
 Just let resolution and refresh rate match settings in Moonlight client
 
+## OpenGL applications
+If play Minecraft and you'll notice any OpenGL game or applications can't be opened  
+Quick and dirty solution: Use basic mode connect to VM  
+set Hyper-V display as secondary monitor and put to right hand side  
+start the app, performance will decrease at the beginning  
+then close Virtuam Machine Connection window to restore performance
+
+Don't know why this work though
+
 ## YUV420 vs YUV444
 Seems H.264 have lower lantency by opinion from internet  
 YUV 444 only available on H.264 on myside, and decoder doesn't support YUV 444, client side decode performance is poor  
