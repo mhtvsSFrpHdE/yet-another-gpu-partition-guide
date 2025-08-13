@@ -146,7 +146,7 @@ to disable automatically enhanced session so you don't need to
 cancel enhanced session each time connect to VM  
 After this you can still manually turn on enhanced session to transfer file
 
-Run this command as admin to quick connect to VM:
+Run this command as admin to quick connect to VM:  
 `vmconnect localhost <VM Name>`  
 You can also create a shortcut to vmconnect.exe with arguments and set run as admin for that shourtcut
 
