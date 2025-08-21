@@ -10,7 +10,7 @@ $vmName = "GuestVmWithGpu"
 Remove-VMGpuPartitionAdapter -VMName $vmName
 ```
 
-### Safe mode
+### Safe mode / Uninstall / Update driver
 If simply remove virtual GPU adapter doesn't work  
 You can use virtual machine reset button serval times on boot phase when you see Windows icon  
 Until "Preparing Automatic Repair" shows, and "Startup Settings", "Enable Safe Mode" in these menu
@@ -29,13 +29,29 @@ $driverExportDir = "C:\GpuDriver"
 pnputil /add-driver "$driverExportDir\*.inf" /install
 ```
 
-If you plan to remove it so you can boot without GPU
+If you plan to remove it so you can boot without GPU driver
 ```
 pnputil /delete-driver oemXX.inf
 ```
+
 Or with /force if something happened
 ```
 pnputil /delete-driver oemXX.inf /force
+```
+
+Finally, delete copied driver files
+```
+$targetDriverIndex = 0
+$driverInstallDir = $targetDriver[$targetDriverIndex].OriginalFileName
+$driverInstallDir = Split-Path $driverInstallDir
+$driverInstallDirName = Split-Path -Leaf $driverInstallDir
+$hostDriverStoreDir = "C:\Windows\System32\HostDriverStore\FileRepository"
+$hostDriverStoreDir = Join-Path $hostDriverStoreDir $driverInstallDirName
+
+# Preview and verify path again to prevent you delete something wrong
+$hostDriverStoreDir
+
+Remove-Item -LiteralPath "$hostDriverStoreDir" -Force -Recurse
 ```
 
 ## I'm on desktop, but can't get GPU Partition work after Windows update
