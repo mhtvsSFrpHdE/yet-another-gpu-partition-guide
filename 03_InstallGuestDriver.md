@@ -28,6 +28,11 @@ $driverInstallDir = Split-Path $driverInstallDir
 $driverInstallDirName = Split-Path -Leaf $driverInstallDir
 $hostDriverStoreDir = "C:\Windows\System32\HostDriverStore\FileRepository"
 $hostDriverStoreDir = Join-Path $hostDriverStoreDir $driverInstallDirName
+
+# Preview and verify path
+$driverInstallDir
+$hostDriverStoreDir
+
 Copy-item -Force -Recurse "$driverInstallDir" -Destination "$hostDriverStoreDir"
 ```
 
