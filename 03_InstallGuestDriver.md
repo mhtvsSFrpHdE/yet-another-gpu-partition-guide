@@ -36,6 +36,9 @@ $hostDriverStoreDir
 Copy-item -Force -Recurse "$driverInstallDir" -Destination "$hostDriverStoreDir"
 ```
 
+## Install extra files
+Run `C:\GpuDriverExtra\install.ps1` with admin permission
+
 ## Finish
 Reboot now, after reboot it should work  
 Once you succussfully configured GPU Partition  

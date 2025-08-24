@@ -47,3 +47,8 @@ pnputil /export-driver "$targetDriverFileName" "$driverExportDir"
 
 Copy driver files from $driverExportDir to guest OS  
 Go to SetGuest before boot into VM
+
+## Collect extra files
+Run `Tools\CollectFiles.ps1`, files will be saved to `C:\GpuDriverExtra`  
+This folder will also copy to guest OS later, allow guest OS to access Nvidia Control Panel  
+Although Nvidia Control Panel can't be installed directly, but use Nvidia Profile Inspector will possible

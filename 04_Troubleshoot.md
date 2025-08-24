@@ -54,6 +54,8 @@ $hostDriverStoreDir
 Remove-Item -LiteralPath "$hostDriverStoreDir" -Force -Recurse
 ```
 
+Run `C:\GpuDriverExtra\uninstall.ps1` with admin permission to remove extra files
+
 ## I'm on desktop, but can't get GPU Partition work after Windows update
 Double check your guest OS and host OS running same version Windows and driver  
 For example
