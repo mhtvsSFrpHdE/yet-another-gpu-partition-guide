@@ -51,8 +51,7 @@ to prevent after reboot virtual display driver resolution reset to 800x600
 Configuration, Audio/Video, Advanced display device options, Device configuration, change to "Disabled"
 ```
 
-Higher quality screen text to reduce color blend to background  
-By my testing, YUV420 doesn't cause bad text, color blend did
+Higher quality screen text to reduce color blend on font to background
 ```
 Configuration, Audio/Video, NVIDIA NVENC Encoder, Spatial AQ, change to `Enabled (slower)`
 The other options do nothing, keep defaults
