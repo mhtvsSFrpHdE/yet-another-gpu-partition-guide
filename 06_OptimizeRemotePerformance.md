@@ -156,6 +156,8 @@ Only turn on vertican sync in Moonlight client settings, not in guest OS
 If play Minecraft and you may notice any OpenGL game or applications can't be opened  
 Hyper-V monitor must be enabled to support OpenGL, just virtual display driver is not enough
 
+Also there is a config in Nvidia Profile Inspector to allow you turn on shader cache for OpenGL apps if you interested
+
 ## YUV420 vs YUV444
 Some Nvidia cards support H.264 YUV444 encoding  
 but decoder doesn't support YUV 444, client side decode performance may poor and latency >= 16.6 ms (60 FPS)  
