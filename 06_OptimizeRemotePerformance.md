@@ -88,19 +88,7 @@ Go to Troubleshooting tab and check Logs
 Paste your device_id to Configuration, Audio/Video, Display Device Id, like this `{9acddf6d-43cc-576e-9aff-0c5fc80b4cc8}`  
 Save and restart Sunshine
 
-Next config dual monitor
-- Drag Hyper-V monitor to right side of virtual display driver monitor
-- Change Hyper-V monitor resolution to 800x600 or any minimal for reduce overhead
-- Set virtual display driver monitor as main display (primary monitor) 
-- Set multi display mode to "Extend these displays", allow OpenGL apps to run by not disabling Hyper-V monitor
-- Change virtual display monitor refresh rate to 90 Hz, or anything greater than 64 Hz
-
-The 90 Hz hack fixed Sunshine capture performance drop when Hyper-V monitor is enabled  
-Maybe because it removed vertical sync for Windows dwm on second monitor  
-Reference: [VALORANT OPTIMIZATION - HOW TO DISABLE WINDOWS 10 VSYNC USING A SECOND MONITOR + REDUCE INPUT LAG](https://youtu.be/ij9nBgjESNQ?t=208)
-
 ## Install virtual sound card on guest OS
-
 https://vb-audio.com/Cable/#DownloadASIOBridge
 
 Hyper-V doesn't have sound card, Sunshine/Moonlight require a sound card to capture sound  
@@ -132,6 +120,17 @@ Give a shot on Most common [Moonlight shortcuts](https://github.com/moonlight-st
 
 Click on plus symbol, type your guest OS IP address  
 and go to guest OS Sunshine WebUI, the "PIN" page to enter pair information
+
+Once connected, config dual monitor inside guest OS
+- Drag Hyper-V monitor to right side of virtual display driver monitor
+- Change Hyper-V monitor resolution to 800x600 or any minimal for reduce overhead
+- Set virtual display driver monitor as main display (primary monitor) 
+- Set multi display mode to "Extend these displays", allow OpenGL apps to run by not disabling Hyper-V monitor
+- Change virtual display monitor refresh rate to 90 Hz, or anything greater than 64 Hz
+
+The 90 Hz hack fixed Sunshine capture performance drop when Hyper-V monitor is enabled  
+Maybe because it removed vertical sync for Windows dwm on second monitor  
+Reference: [VALORANT OPTIMIZATION - HOW TO DISABLE WINDOWS 10 VSYNC USING A SECOND MONITOR + REDUCE INPUT LAG](https://youtu.be/ij9nBgjESNQ?t=208)
 
 ## Clipboard sync
 Use Syncthing file sync software and paste clipboard to file like
