@@ -74,9 +74,8 @@ just the driver itself is suitable
 Later if Microsoft basic mode shows nothing  
 imagine you now have dual monitor setup on guest OS  
 Go to display settings and play with settings  
-"Show only on 2" of course cause Microsoft basic mode shows nothing  
-but may improve performance for not waste on something not being used  
-In this case you can use enhanced session or remote desktop RDP
+"Show only on 2" of course cause Microsoft basic mode shows nothing
+In this case, you can use enhanced session or remote desktop RDP to make bootstrap
 
 After install, restart Sunshine, tell it to capture your virtual display instead of Hyper-V basic mode:  
 Go to Troubleshooting tab and check Logs
@@ -89,6 +88,17 @@ Go to Troubleshooting tab and check Logs
 ```
 Paste your device_id to Configuration, Audio/Video, Display Device Id, like this `{9acddf6d-43cc-576e-9aff-0c5fc80b4cc8}`  
 Save and restart Sunshine
+
+Next config dual monitor
+- Drag Hyper-V monitor to right side of virtual display driver monitor
+- Change Hyper-V monitor resolution to 800x600 or any minimal for reduce overhead
+- Set virtual display driver monitor as main display (primary monitor) 
+- Set multi display mode to "Extend these displays", allow OpenGL apps to run by not disabling Hyper-V monitor
+- Change virtual display monitor refresh rate to 90 Hz, or anything greater than 64 Hz
+
+The 90 Hz hack fixed Sunshine capture performance drop when Hyper-V monitor is enabled  
+Maybe because it removed vertical sync for Windows dwm on second monitor  
+Reference: [VALORANT OPTIMIZATION - HOW TO DISABLE WINDOWS 10 VSYNC USING A SECOND MONITOR + REDUCE INPUT LAG](https://youtu.be/ij9nBgjESNQ?t=208)
 
 ## Install virtual sound card on guest OS
 
@@ -109,8 +119,10 @@ Moonlight settings:
 - Video bitrate: `Untouched or whatever you want`
 - Display mode: `Fullscreen`
 - V-Sync: `On`
-- Optimize mouse for remote desktop: `On`, `Off` if you are actually gaming, this sets unlimit mouse moving
-- Capture system keyboard shortcuts: `in fullscreen`For Video codec, it very depends on GPU.
+- Optimize mouse for remote desktop: `On`, `Off` if you are actually gaming, this sets unlimit mouse moving, good for FPS game
+- Capture system keyboard shortcuts: `in fullscreen`
+
+For Video codec, it very depends on GPU
 
 Give a shot on Most common [Moonlight shortcuts](https://github.com/moonlight-stream/moonlight-docs/wiki/Setup-Guide#keyboardmousegamepad-input-options) before connect to prevent you can't exit VIM:
 - Quit: "Ctrl+Alt+Shift+Q"
@@ -119,51 +131,8 @@ Give a shot on Most common [Moonlight shortcuts](https://github.com/moonlight-st
 - Toggle fullscreen: "Ctrl+Alt+Shift+X"
 - Performance static: "Ctrl+Alt+Shift+S
 
-Type your guest OS IP address, and go to guest OS Sunshine WebUI, the "PIN" page to enter pair information  
-After pair, you may need to close Moonlight, open "Moonlight.ini" and check if IP is right  
-My guest OS have multiple IP so it saved wrong information
-```
-[hosts]
-1\hostname=<guest OS device name>
-1\localaddress=<guest OS LAN IP>
-1\remoteaddress=<Moonlight client computer IP>
-```
-
-After connect with Moonlight, you'll also need to change resolution with settings  
-In Advanced display, there is also refresh rate settings can go even higher than 60  
-Just let resolution and refresh rate match settings in Moonlight client
-
-## OpenGL applications
-If play Minecraft and you'll notice any OpenGL game or applications can't be opened  
-Quick and dirty solution: Use basic mode connect to VM  
-set Hyper-V display as secondary monitor and put to right hand side  
-start the app, performance will decrease at the beginning  
-then close Virtuam Machine Connection window to restore performance
-
-There is a switch on Hyper-V settings (not VM settings)  
-under User section, uncheck Enhanced Session Mode  
-to disable automatically enhanced session so you don't need to  
-cancel enhanced session each time connect to VM  
-After this you can still manually turn on enhanced session to transfer file
-
-Run this command as admin to quick connect to VM:  
-`vmconnect localhost <VM Name>`  
-You can also create a shortcut to vmconnect.exe with arguments and set run as admin for that shourtcut
-
-Don't know why this work though
-
-## YUV420 vs YUV444
-Seems H.264 have lower lantency by opinion from internet  
-YUV 444 only available on H.264 on myside, and decoder doesn't support YUV 444, client side decode performance is poor  
-Nvenc HEVC also use 420 only until 50 series to support 422  
-All of these video encoded protocol have sight color blend which may not important if gaming  
-Turn on "Spatial AQ" in Sunshine NVENC encoder settings, reduced color blend to barely noticeable
-
-To get perfect full color experience, Microsoft remote desktop still a choice  
-to transfer lossless video by use group policy, at cost of performance  
-The drawbacks not at application performance but transfer performance  
-Your app indeed running at 60 FPS in remote environment with [DWMFRAMEINTERVAL](https://learn.microsoft.com/en-us/troubleshoot/windows-server/remote/frame-rate-limited-to-30-fps)  
-but video not make it tranfer at 60 FPS thus laggy
+Click on plus symbol, type your guest OS IP address  
+and go to guest OS Sunshine WebUI, the "PIN" page to enter pair information
 
 ## Clipboard sync
 Use Syncthing file sync software and paste clipboard to file like
@@ -172,4 +141,36 @@ Use Syncthing file sync software and paste clipboard to file like
 
 https://syncthing.net
 
-Or for simple quick text use `Ctrl+Alt+Shift+V`
+Or for paste simple quick text to guest, use Moonlight shortcut `Ctrl+Alt+Shift+V`
+
+## Nvidia Control Panel and driver settings
+Nvidia driver can't be installed directly and Nvidia Control Pannel UWP apps don't recognize vGPU  
+You can edit control panel in host PC and copy entire `C:\ProgramData\NVIDIA Corporation` to same location in guest OS  
+Or use Nvidia Profile Inspector in guest OS to adjust settings
+
+## Vertical sync
+Turn off vertical sync in guest OS as much as possible, this reduced the latency A LOT  
+You'll need Nvidia driver settings to do this
+
+Only turn on vertican sync in Moonlight client settings, not in guest OS
+
+## OpenGL applications
+If play Minecraft and you may notice any OpenGL game or applications can't be opened  
+Hyper-V monitor must be enabled to support OpenGL, just virtual display driver is not enough
+
+## YUV420 vs YUV444
+Some Nvidia cards support H.264 YUV444 encoding  
+but decoder doesn't support YUV 444, client side decode performance may poor and latency >= 16.6 ms (60 FPS)  
+if software decode latency <= 16.6 ms then is fine
+
+There is also a hack that is set Moonlight client resolution to 3840x2160 and downscale to 1920x1080  
+this allows emulate YUV444 color while hardware only support decode YUV420  
+however, it eats a lot encoding performance  
+because now GPU need to upscale image and finally latency >= 16.6 ms (60 FPS)  
+also it can't provide pixel perfect experience, color is good but image is blur
+
+To get pixel perfect full color experience, Microsoft remote desktop is still a choice  
+to transfer lossless video by use group policy, at cost of performance  
+The drawbacks not at application performance but transfer performance  
+Your app indeed running at 60 FPS in remote environment with [DWMFRAMEINTERVAL](https://learn.microsoft.com/en-us/troubleshoot/windows-server/remote/frame-rate-limited-to-30-fps)  
+but video not make it tranfer at 60 FPS thus laggy
