@@ -49,7 +49,8 @@ Copy driver files from $driverExportDir to guest OS
 Go to SetGuest before boot into VM
 
 ## Collect extra files
-Open dxdiag on host PC, Save All Information as `DxDiag.txt`, put together with `Tools\CollectFiles.ps1`
+Open dxdiag on host PC, Save All Information as `DxDiag.txt`, put together with `Tools\CollectFiles.ps1`  
+Open `DxDiag.txt` and looking for your graphics card name, copy it and edit to first line of `Tools\CollectFiles.ps1`
 
 Run `Tools\CollectFiles.ps1`, files will be saved to `C:\GpuDriverExtra`  
 This folder also need copy to guest OS later, allow guest OS to access Nvidia Control Panel and driver settings  
