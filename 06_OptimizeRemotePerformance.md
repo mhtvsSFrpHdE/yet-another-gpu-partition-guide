@@ -160,8 +160,10 @@ Hyper-V monitor must be enabled to support OpenGL, just virtual display driver i
 Also there is a config in Nvidia Profile Inspector to allow you turn on shader cache for OpenGL apps if you interested
 
 ### Vulkan applications
-Vulkan doesn't play well with DXGI capture and dual monitor setup at same time  
-You need to start Vulkan apps in dual monitor, after open Vulkan, turn off Hyper-V Video secondary monitor temporary  
+Vulkan doesn't play well with sunshine DXGI capture and dual monitor setup at same time  
+You need to start Vulkan apps in dual monitor, after open Vulkan,  
+turn off Hyper-V Video secondary monitor temporary to get best video capture performance  
+After Vulkan apps exit, switch back to dual monitor to allow you open other non DirectX apps  
 I have scripts do this quick in `Tools\Vulkan`
 
 ### YUV420 vs YUV444
