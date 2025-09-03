@@ -10,13 +10,13 @@ Nvidia driver frame limiter v3 doesn't work
 in-game 60 FPS result in 59 FPS, RivaTuner did 60 FPS
 - Game
 
+You can use optiscaler directly in this setup since it's raw DirectX 11
+
 The following guide is for advanced setup
 - Dual monitor (preserve OpenGL)
 - dxvk / optiscaler (Vulkan and FSR 3 mod)
 
-# FFXIV - Dual monitor / DX11 / optiscaler
-You can use optiscaler directly in this setup since it's raw DirectX 11
-
+# FFXIV - Dual monitor
 ## Optimizations for windowed games
 - Settings - System - Display - Graphics - Optimizations for windowed games, change to On
 - Custom settings for applications - Find FINAL FANTASY XIV - Expand menu - Optimizations for windowed games, change to On
