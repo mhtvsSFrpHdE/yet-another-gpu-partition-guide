@@ -65,6 +65,7 @@ With all these setup, now game will run and capture / stream smoothly at 60 FPS,
 Do this quick with scripts under `Tools\Vulkan`
 
 ## dxvk.conf reference
+Place this file together with dxvk dlls aside game exe
 ```
 dxvk.enableAsync=true
 dxgi.customVendorId = 10de
