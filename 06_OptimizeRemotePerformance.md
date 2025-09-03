@@ -132,7 +132,8 @@ The 90 Hz hack fixed Sunshine capture performance drop when Hyper-V monitor is e
 Maybe because it removed vertical sync for Windows dwm on second monitor  
 Reference: [VALORANT OPTIMIZATION - HOW TO DISABLE WINDOWS 10 VSYNC USING A SECOND MONITOR + REDUCE INPUT LAG](https://youtu.be/ij9nBgjESNQ?t=208)
 
-## Clipboard sync
+## FAQ
+### Clipboard sync
 Use Syncthing file sync software and paste clipboard to file like
 - `Clipboard.txt` constantly open with Microsoft Notepad `notepad.exe`
 - `Clipboard.png` edit with Microsoft Paint `mspaint.exe`
@@ -141,24 +142,29 @@ https://syncthing.net
 
 Or for paste simple quick text to guest, use Moonlight shortcut `Ctrl+Alt+Shift+V`
 
-## Nvidia Control Panel and driver settings
+### Nvidia Control Panel and driver settings
 Nvidia driver can't be installed directly and Nvidia Control Pannel UWP apps don't recognize vGPU  
 You can edit control panel in host PC and copy entire `C:\ProgramData\NVIDIA Corporation` to same location in guest OS  
 Or use Nvidia Profile Inspector in guest OS to adjust settings
 
-## Vertical sync
+### Vertical sync
 Turn off vertical sync in guest OS as much as possible, this reduced the latency A LOT  
 You'll need Nvidia driver settings to do this
 
 Only turn on vertican sync in Moonlight client settings, not in guest OS
 
-## OpenGL applications
+### OpenGL applications
 If play Minecraft and you may notice any OpenGL game or applications can't be opened  
 Hyper-V monitor must be enabled to support OpenGL, just virtual display driver is not enough
 
 Also there is a config in Nvidia Profile Inspector to allow you turn on shader cache for OpenGL apps if you interested
 
-## YUV420 vs YUV444
+### Vulkan applications
+Vulkan doesn't play well with DXGI capture and dual monitor setup at same time  
+You need to start Vulkan apps in dual monitor, after open Vulkan, turn off Hyper-V Video secondary monitor temporary  
+I have scripts do this quick in `Tools\Vulkan`
+
+### YUV420 vs YUV444
 Some Nvidia cards support H.264 YUV444 encoding  
 but decoder doesn't support YUV 444, client side decode performance may poor and latency >= 16.6 ms (60 FPS)  
 if software decode latency <= 16.6 ms then is fine

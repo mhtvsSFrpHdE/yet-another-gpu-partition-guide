@@ -62,6 +62,8 @@ which is, regularly in dual monitor setup it is run at 90 Hz, but now same as ga
 
 With all these setup, now game will run and capture / stream smoothly at 60 FPS, and you have dxvk and optiscaler
 
+Do this quick with scripts under `Tools\Vulkan`
+
 ## dxvk.conf reference
 ```
 dxvk.enableAsync=true
