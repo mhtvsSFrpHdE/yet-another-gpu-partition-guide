@@ -11,7 +11,7 @@ However, due to several bugs in mid 2025, GPU partition is heavily rely on known
 - Guest OS Windows 11 build `26100.2033` (2)
 - Nvidia Game Ready driver `580.97`
 - Sunshine `v2025.628.4510`
-- Moonlight `6.1.0`
+- Moonlight-qt `6.1.0`
 - GPU EVGA GTX 1080 Ti SC Black Edition w/ iCX Cooler 11G-P4-6393-KR
 
 ### (1), (2)
