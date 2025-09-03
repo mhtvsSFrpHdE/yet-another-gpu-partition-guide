@@ -1,10 +1,3 @@
-## Known good combination
-- Windows 11 OS build `26100.4946`
-- Nvidia Game Ready driver `580.97`
-- Sunshine `v2025.122.141614`
-- Moonlight `6.1.0`
-- EVGA GTX 1080 Ti SC Black Edition w/ iCX Cooler 11G-P4-6393-KR
-
 ## Emergency recovery
 The GPU Partition may fail due to reasons  
 If you sure you can't boot to desktop because of GPU Partition  

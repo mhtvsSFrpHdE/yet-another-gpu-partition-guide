@@ -1,8 +1,33 @@
 ## Prerequisite
-Guest OS and Host OS must run exact same version of Windows and driver  
+Guest OS and Host OS should run exact same version of Windows and driver  
 For example
 - Windows 11 OS Build 26100.2033
 - Nvidia 572.16
+
+However, due to several bugs in mid 2025, GPU partition is heavily rely on known good combination
+
+## Known good combination
+- Host OS Windows 11 build `26100.4946` (1)
+- Guest OS Windows 11 build `26100.2033` (2)
+- Nvidia Game Ready driver `580.97`
+- Sunshine `v2025.628.4510`
+- Moonlight `6.1.0`
+- GPU EVGA GTX 1080 Ti SC Black Edition w/ iCX Cooler 11G-P4-6393-KR
+
+### (1), (2)
+When use `26100.2033` as host OS, `vmmem` process has memory leak issue  
+Microsoft support suggest upgrade to latest version, and indeed fixed
+
+When use `26100.4946` (the latest suggest by Microsoft support at time)  
+as guest OS, `Microsoft Hyper-V Video` / `Generic Monitor (HyperVMonitor)`  
+can't be lit on in guest OS and has nvlddmkm 153 when connect with enhanced mode  
+but it runs fine as host OS
+
+The idea is run `26100.4946` as host so there is no memory leak  
+and run `26100.2033` as guest so virtual monitor can be lit on to brings OpenGL and Vulkan support
+
+Reference  
+[[Windows Server 2025 Host] KB5062553 (and June’s) Breaks GPU-P to Windows 11 VM – Anyone Else?](https://www.reddit.com/r/HyperV/comments/1lvduk4/windows_server_2025_host_kb5062553_and_junes)
 
 ## Prepare host driver export dir
 ```
