@@ -145,7 +145,7 @@ Or for paste simple quick text to guest, use Moonlight shortcut `Ctrl+Alt+Shift+
 ### Nvidia Control Panel and driver settings
 Nvidia driver can't be installed directly and Nvidia Control Pannel UWP apps don't recognize vGPU  
 You can edit control panel in host PC and copy entire `C:\ProgramData\NVIDIA Corporation` to same location in guest OS  
-Or use Nvidia Profile Inspector in guest OS to adjust settings
+then use Nvidia Profile Inspector in guest OS to adjust settings
 
 ### Vertical sync
 Turn off vertical sync in guest OS as much as possible, this reduced the latency A LOT  
