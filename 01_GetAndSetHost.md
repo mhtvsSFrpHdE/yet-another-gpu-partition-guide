@@ -26,6 +26,9 @@ but it runs fine as host OS
 The idea is run `26100.4946` as host so there is no memory leak  
 and run `26100.2033` as guest so virtual monitor can be lit on to brings OpenGL and Vulkan support
 
+Reference  
+[[Windows Server 2025 Host] KB5062553 (and June’s) Breaks GPU-P to Windows 11 VM – Anyone Else?](https://www.reddit.com/r/HyperV/comments/1lvduk4/windows_server_2025_host_kb5062553_and_junes)
+
 ### Where to get certain version of Windows
 - Microsoft has a page that lists Windows build number [windows-11-version-24h2-update-history](https://support.microsoft.com/en-us/topic/windows-11-version-24h2-update-history-0929c747-1815-4543-8461-0160d16f15e5)
 - On the page looking for `OS Build <version number>`, like 26100.2033
@@ -33,12 +36,11 @@ and run `26100.2033` as guest so virtual monitor can be lit on to brings OpenGL 
 - Follow instructions on page to download file
 - Try mount the iso in system and run `setup.exe` directly to see if you can downgrade without reinstall
 - If downgrade in-place upgrade failed, no choice but have to reinstall
-- Next time remember to backup system partition before click on the cursed `Download & install all` button in Windows Update  
+- Set Windows Update group policy `Configure Automatic Updates` to `2 - Notify for download and auto install`  
+to prevent unexpected version number change  
+Next time remember to backup system partition before click on the cursed `Download & install all` button in Windows Update  
 Use `Backup and Restore (Windows 7)`, `Create a system image`  
 or `export virtual machine` to somewhere in case GPU Partition virtual machine doesn't support checkpoint
-
-Reference  
-[[Windows Server 2025 Host] KB5062553 (and June’s) Breaks GPU-P to Windows 11 VM – Anyone Else?](https://www.reddit.com/r/HyperV/comments/1lvduk4/windows_server_2025_host_kb5062553_and_junes)
 
 ## Prepare host driver export dir
 ```
