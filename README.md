@@ -9,7 +9,7 @@ PowerShell commands with comments in `.md` markdown file.
 You can copy and paste, run in a admin permission powershell window directly.  
 Change arguments before paste into powershell window.
 
-If you have problems with certain apps, check `Solutions` folder, may be there is one
+If you have problems with certain apps, check `Solutions` folder, may be there is one already
 
 ## Verify gpu compatibility
 Install Windows feature "Windows Sandbox", open Sandbox and check if the sandbox is GPU accelerated.  
