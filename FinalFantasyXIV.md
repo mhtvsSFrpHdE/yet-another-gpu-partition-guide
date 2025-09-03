@@ -14,7 +14,8 @@ The following guide is for advanced setup
 - Dual monitor (preserve OpenGL)
 - dxvk / optiscaler (Vulkan and FSR 3 mod)
 
-# FFXIV - Dual monitor
+# FFXIV - Dual monitor / DX11 / optiscaler
+You can use optiscaler directly in this setup since it's raw DirectX 11
 
 ## Optimizations for windowed games
 - Settings - System - Display - Graphics - Optimizations for windowed games, change to On
@@ -34,6 +35,7 @@ Nvidia driver frame limiter v3 doesn't work
 in-game 60 FPS result in 59 FPS, RivaTuner did 60 FPS
 
 # FFXIV dxvk / optiscaler
+optiscaler plus dxvk Vulkan API
 
 ## Optimizations for windowed games
 You don't need this option in Vulkan in the end  
