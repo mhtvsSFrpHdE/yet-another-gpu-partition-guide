@@ -127,6 +127,8 @@ Once connected, config dual monitor inside guest OS
 - Set virtual display driver monitor as main display (primary monitor) 
 - Set multi display mode to "Extend these displays", allow OpenGL apps to run by not disabling Hyper-V monitor
 - Change virtual display monitor refresh rate to 90 Hz, or anything greater than 64 Hz
+- Optional: Disable "Enhance pointer precision" in guest OS to get better responsive mouse  
+You can leave it on in host OS if you prefer
 
 The 90 Hz hack fixed Sunshine capture performance drop when Hyper-V monitor is enabled  
 Maybe because it removed vertical sync for Windows dwm on second monitor  
