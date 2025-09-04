@@ -1,4 +1,4 @@
-Seems battleye will complain about CPU usage too high
+Seems battleye will complain about CPU usage too high (98% or above on loading screen)
 
 If kicked by battleye when try to join online, allocate more CPU core / thread.  
 For example, AMD 8400F has total 6 core 12 thread on host
