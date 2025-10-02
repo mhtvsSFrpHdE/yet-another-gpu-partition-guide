@@ -159,7 +159,9 @@ or use the mute while streaming feature to prevent modified audio singal send to
 - Check sunshine settings, enable and use Steam Streaming Speakers to transfer audio, don't use your real sound card
 - Install Equalzer APO inside guest OS where sunshine installed, choose Steam Streaming Speakers while install
 - Greater than `-96`, for example `-65.2`: Add `96 - 65.2 - 0.1` = `30.7 dB` preamp gain to Steam Streaming Speakers
-- Less than `-96`, for example `-128`: Add `128 - 96` = `32 dB` preamp gain to Steam Streaming Speakers
+- Less than `-96`, for example `-128`: Add `-1 * (128 - 96)` = `-32 dB` preamp gain to Steam Streaming Speakers  
+Note that this "less than" fix is only in threory, it may not needed  
+I don't have sound card has -128 decibels range
 - Add a device control filter to make sure these settings only apply to Steam Streaming Speakers
 
 Equalizer APO config.txt example:
