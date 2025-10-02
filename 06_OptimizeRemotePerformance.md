@@ -135,7 +135,9 @@ Maybe because it removed vertical sync for Windows dwm on second monitor
 Reference: [VALORANT OPTIMIZATION - HOW TO DISABLE WINDOWS 10 VSYNC USING A SECOND MONITOR + REDUCE INPUT LAG](https://youtu.be/ij9nBgjESNQ?t=208)
 
 ## FAQ
-### Clipboard sync
+<details>
+    <summary><b>Clipboard sync</b></summary>
+
 Use Syncthing file sync software and paste clipboard to file like
 - `Clipboard.txt` constantly open with Microsoft Notepad `notepad.exe`
 - `Clipboard.png` edit with Microsoft Paint `mspaint.exe`
@@ -144,7 +146,11 @@ https://syncthing.net
 
 Or for paste simple quick text to guest, use Moonlight shortcut `Ctrl+Alt+Shift+V`
 
-### Volume lower than expected or bad audio quality
+</details>
+
+<details>
+    <summary><b>Volume lower than expected or bad audio quality</b></summary>
+
 Sunshine version: `v2025.628.4510`  
 Moonlight version: `6.1.0`
 
@@ -181,33 +187,55 @@ Peak gain greater than 0 is only designed to fix volume issue during moonlight s
 
 Related issue https://github.com/mhtvsSFrpHdE/yet-another-gpu-partition-guide/issues/7
 
-### Nvidia Control Panel and driver settings
+</details>
+
+
+
+<details>
+    <summary><b>Nvidia Control Panel and driver settings</b></summary>
+
 Nvidia driver can't be installed directly and Nvidia Control Pannel UWP apps don't recognize vGPU  
 You can edit control panel in host PC and copy entire `C:\ProgramData\NVIDIA Corporation` to same location in guest OS  
 then use Nvidia Profile Inspector in guest OS to adjust settings
 
 Frame limiter in driver settings is known to not work, you can use RivaTuner come with MSI Afterburner which also works fine
 
-### Vertical sync
+</details>
+
+<details>
+    <summary><b>Vertical sync</b></summary>
+
 Turn off vertical sync in guest OS as much as possible, this reduced the latency A LOT  
 You'll need Nvidia driver settings to do this
 
 Only turn on vertican sync in Moonlight client settings, not in guest OS
 
-### OpenGL applications
+</details>
+
+<details>
+    <summary><b>OpenGL applications</b></summary>
+
 If play Minecraft and you may notice any OpenGL game or applications can't be opened  
 Hyper-V monitor must be enabled to support OpenGL, just virtual display driver is not enough
 
 Also there is a config in Nvidia Profile Inspector to allow you turn on shader cache for OpenGL apps if you interested
 
-### Vulkan applications
+</details>
+
+<details>
+    <summary><b>Vulkan applications</b></summary>
+
 Vulkan doesn't play well with sunshine DXGI capture and dual monitor setup at same time  
 You need to start Vulkan apps in dual monitor, after open Vulkan,  
 turn off Hyper-V Video secondary monitor temporary to get best video capture performance  
 After Vulkan apps exit, switch back to dual monitor to allow you open other non DirectX apps  
 I have scripts do this quick in `Tools\Vulkan`
 
-### YUV420 vs YUV444
+</details>
+
+<details>
+    <summary><b>YUV420 vs YUV444</b></summary>
+
 Some Nvidia cards support H.264 YUV444 encoding  
 but decoder doesn't support YUV 444, client side decode performance may poor and latency >= 16.6 ms (60 FPS)  
 if software decode latency <= 16.6 ms then is fine
@@ -223,3 +251,5 @@ to transfer lossless video by use group policy, at cost of performance
 The drawbacks not at application performance but transfer performance  
 Your app indeed running at 60 FPS in remote environment with [DWMFRAMEINTERVAL](https://learn.microsoft.com/en-us/troubleshoot/windows-server/remote/frame-rate-limited-to-30-fps)  
 but video not make it tranfer at 60 FPS thus laggy
+
+</details>
