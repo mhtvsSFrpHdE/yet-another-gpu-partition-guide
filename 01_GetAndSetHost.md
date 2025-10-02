@@ -9,7 +9,7 @@ However, due to several bugs in mid 2025, GPU partition is heavily rely on known
 ## Known good combination
 - Host OS Windows 11 build `26100.4946` (1)
 - Guest OS Windows 11 build `26100.2033` (2)
-- Nvidia Game Ready driver `580.97`
+- Nvidia Game Ready/Studio driver `580.97` (3)
 - Sunshine `v2025.628.4510`
 - Moonlight-qt `6.1.0`
 - GPU EVGA GTX 1080 Ti SC Black Edition w/ iCX Cooler 11G-P4-6393-KR
@@ -28,6 +28,9 @@ and run `26100.2033` as guest so virtual monitor can be lit on to brings OpenGL 
 
 Reference  
 [[Windows Server 2025 Host] KB5062553 (and June’s) Breaks GPU-P to Windows 11 VM – Anyone Else?](https://www.reddit.com/r/HyperV/comments/1lvduk4/windows_server_2025_host_kb5062553_and_junes)
+
+### (3)
+I recommend use Studio driver so you don't need to bother with Dynamic Range: Limited 16-235 vs Full 0-255
 
 ### Where to get certain version of Windows
 - Microsoft has a page that lists Windows build number [windows-11-version-24h2-update-history](https://support.microsoft.com/en-us/topic/windows-11-version-24h2-update-history-0929c747-1815-4543-8461-0160d16f15e5)
