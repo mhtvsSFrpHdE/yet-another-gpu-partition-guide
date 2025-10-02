@@ -144,10 +144,44 @@ https://syncthing.net
 
 Or for paste simple quick text to guest, use Moonlight shortcut `Ctrl+Alt+Shift+V`
 
+### Volume lower than expected or bad audio quality
+<img width="380" height="173" alt="Image" src="https://github.com/user-attachments/assets/90b41c7f-3270-494a-aa3c-b2a82b26c613" />
+
+On PC run moonlight, check control panel Sound, Speaker properties, at Levels tab  
+right click on volume value, change it from percentage to decibels  
+drag the volume bar all the way left, record value you see like `-65.2 dB`
+
+If this value is not equal to `-96 dB`...  
+**Unplug all real audio speakers, headphones from PC running sunshine if you have attached them directly to it!**  
+**these preamp action and volume settings will damage physical audio device!**  
+Only plug physical audio device to PC where moonlight running  
+or use the mute while streaming feature to prevent modified audio singal send to these physical device
+- Check sunshine settings, enable and use Steam Streaming Speakers to transfer audio, don't use your real sound card
+- Install Equalzer APO inside guest OS where sunshine installed, choose Steam Streaming Speakers while install
+- Greater than `-96`, for example `-65.2`: Add `96 - 65.2 - 0.1` = `30.7 dB` preamp gain to Steam Streaming Speakers
+- Less than `-96`, for example `-128`: Add `128 - 96` = `32 dB` preamp gain to Steam Streaming Speakers
+- Add a device control filter to make sure these settings only apply to Steam Streaming Speakers
+
+Equalizer APO config.txt example:
+```
+Device: Speakers Steam Streaming Speakers
+# Gain (Moonlight)
+Preamp: 30.7 dB
+```
+
+After you can verify these settings won't affect your if any physical sound card on PC running sunshine  
+you may plug speakers or headphones back for handy reason, but this is still very risky, careful with that  
+Make sure when you put audio singal to physical device, the peak gain value is below 0 dB like -0.1 dB  
+Peak gain greater than 0 is only designed to fix volume issue during moonlight streaming
+
+Related issue https://github.com/mhtvsSFrpHdE/yet-another-gpu-partition-guide/issues/7
+
 ### Nvidia Control Panel and driver settings
 Nvidia driver can't be installed directly and Nvidia Control Pannel UWP apps don't recognize vGPU  
 You can edit control panel in host PC and copy entire `C:\ProgramData\NVIDIA Corporation` to same location in guest OS  
 then use Nvidia Profile Inspector in guest OS to adjust settings
+
+Frame limiter in driver settings is known to not work, you can use RivaTuner come with MSI Afterburner which also works fine
 
 ### Vertical sync
 Turn off vertical sync in guest OS as much as possible, this reduced the latency A LOT  
