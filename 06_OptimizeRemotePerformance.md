@@ -145,6 +145,9 @@ https://syncthing.net
 Or for paste simple quick text to guest, use Moonlight shortcut `Ctrl+Alt+Shift+V`
 
 ### Volume lower than expected or bad audio quality
+Sunshine version: `v2025.628.4510`  
+Moonlight version: `6.1.0`
+
 <img width="380" height="173" alt="Image" src="https://github.com/user-attachments/assets/90b41c7f-3270-494a-aa3c-b2a82b26c613" />
 
 On PC run moonlight, check control panel Sound, Speaker properties, at Levels tab  
