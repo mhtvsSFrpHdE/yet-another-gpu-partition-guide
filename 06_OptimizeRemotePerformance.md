@@ -142,6 +142,11 @@ No need to run this in guest OS
 It seems memory compression on host OS effect virtual machine realtime performance  
 but memory compression inside guest VM doesn't
 
+You may also interested in  
+View advanced system settings - Advanced - Performance - Settings - Advanced - Processor scheduling  
+Program vs Background service  
+but I have no time to verify it is related to this issue or not
+
 Related issue https://github.com/mhtvsSFrpHdE/yet-another-gpu-partition-guide/issues/4
 
 ## FAQ
@@ -198,8 +203,6 @@ Peak gain greater than 0 is only designed to fix volume issue during moonlight s
 Related issue https://github.com/mhtvsSFrpHdE/yet-another-gpu-partition-guide/issues/7
 
 </details>
-
-
 
 <details>
     <summary><b>Nvidia Control Panel and driver settings</b></summary>
@@ -261,5 +264,39 @@ to transfer lossless video by use group policy, at cost of performance
 The drawbacks not at application performance but transfer performance  
 Your app indeed running at 60 FPS in remote environment with [DWMFRAMEINTERVAL](https://learn.microsoft.com/en-us/troubleshoot/windows-server/remote/frame-rate-limited-to-30-fps)  
 but video not make it tranfer at 60 FPS thus laggy
+
+</details>
+
+<details>
+    <summary><b>Control virtual machine CPU affinity and priority</b></summary>
+
+<img width="456" height="346" alt="Image" src="https://github.com/user-attachments/assets/dcf3b8ec-cacd-4591-9cba-59ed2c6f6508" />
+
+On customer version Windows 11, Hyper-V use `0x4`, the "Root scheduler"  
+If you want to carefully allocate CPU resource  
+the result is these settings won't work and you may trapped into certain problems
+
+Before start, if your virtual machine is imported from other computer  
+Go to virtual machine settings, Processor, expand it and select NUMA  
+click on `Use Hardware Topology` to update Hyperthread/SMT settings
+
+I have a script under `Tools\SetVmPriority.ps1`  
+you can run it after boot all your VM, to set each VM CPU affinity and priority  
+After download, use notepad open it and scroll to bottom  
+you can see function call to adjust affinity and priority  
+and code to adjust moonlight client too
+
+Modify argument as you like, then run the script with admin permission  
+Script file argument `-IgnoreNotRunning`: script will skip not running VM instead of wait it to boot
+
+Code is one time, only apply to running process, not persistent  
+need to re-run after VM shutdown/boot again
+
+Hyper-V doesn't allow you to really bind a certain process running in guest OS to a certain physical CPU core  
+If you set affinity inside guest OS, although guest OS think it's bind to one core  
+but on physical PC, you will still notice that CPU usage divide evenly between multiple cores  
+With this tool, at least you can specify guest OS as a whole to running on certain cores
+
+Related issue https://github.com/mhtvsSFrpHdE/yet-another-gpu-partition-guide/issues/4
 
 </details>
