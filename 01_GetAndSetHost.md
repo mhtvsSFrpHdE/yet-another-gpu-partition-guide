@@ -30,7 +30,8 @@ Reference
 [[Windows Server 2025 Host] KB5062553 (and June’s) Breaks GPU-P to Windows 11 VM – Anyone Else?](https://www.reddit.com/r/HyperV/comments/1lvduk4/windows_server_2025_host_kb5062553_and_junes)
 
 ### (3)
-I recommend use Studio driver so you don't need to bother with Dynamic Range: Limited 16-235 vs Full 0-255
+I recommend use Studio driver so you don't need to bother with Dynamic Range: Limited 16-235 vs Full 0-255  
+Studio default is 0-255
 
 ### Where to get certain version of Windows
 - Microsoft has a page that lists Windows build number [windows-11-version-24h2-update-history](https://support.microsoft.com/en-us/topic/windows-11-version-24h2-update-history-0929c747-1815-4543-8461-0160d16f15e5)
