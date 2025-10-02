@@ -134,6 +134,16 @@ The 90 Hz hack fixed Sunshine capture performance drop when Hyper-V monitor is e
 Maybe because it removed vertical sync for Windows dwm on second monitor  
 Reference: [VALORANT OPTIMIZATION - HOW TO DISABLE WINDOWS 10 VSYNC USING A SECOND MONITOR + REDUCE INPUT LAG](https://youtu.be/ij9nBgjESNQ?t=208)
 
+## Fix "slow connection" lag on excellent network frequently
+By disable memory compression  
+Run `Disable-MMAgent -mc` on Hyper-V host PC, and reboot host PC
+No need to run this in guest OS
+
+It seems memory compression on host OS effect virtual machine realtime performance  
+but memory compression inside guest VM doesn't
+
+Related issue https://github.com/mhtvsSFrpHdE/yet-another-gpu-partition-guide/issues/4
+
 ## FAQ
 <details>
     <summary><b>Clipboard sync</b></summary>
