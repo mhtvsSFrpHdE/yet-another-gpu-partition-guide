@@ -88,6 +88,9 @@ Go to Troubleshooting tab and check Logs
 Paste your device_id to Configuration, Audio/Video, Display Device Id, like this `{9acddf6d-43cc-576e-9aff-0c5fc80b4cc8}`  
 Save and restart Sunshine
 
+Microsoft Hyper-V basic mode is not support dual monitor natively  
+you can't mouse click via basic mode after having dual monitor is a normal behavior
+
 ## Install virtual sound card on guest OS
 https://vb-audio.com/Cable/#DownloadASIOBridge
 
