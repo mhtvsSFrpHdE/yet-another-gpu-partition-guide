@@ -92,12 +92,13 @@ Microsoft Hyper-V basic mode is not support dual monitor natively
 you can't mouse click via basic mode after having dual monitor is a normal behavior
 
 ## Install virtual sound card on guest OS
-https://vb-audio.com/Cable/#DownloadASIOBridge
-
 Hyper-V doesn't have sound card, Sunshine/Moonlight require a sound card to capture sound  
-thus VB-Audio Hi-Fi Cable is recommended
+before I use [VB-Audio Hi-Fi Cable](https://vb-audio.com/Cable/#DownloadASIOBridge)  
+but now I find sunshine already provide "Steam Streaming Speakers" as a choice  
+there is no sound quality difference in theory in my opinion
 
-You may want to change it's playback and record sample rate to 16 bit 48000 from default 24 bit in sound settings
+You may want to change it's playback and record sample rate to something like  
+16 bit 48000 from 24 bit in sound settings to match physical sound card settings
 
 ## Install Moonlight to connect
 On computer want to connect to guest OS, install Moonlight  
