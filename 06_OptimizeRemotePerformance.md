@@ -129,7 +129,7 @@ Once connected, config dual monitor inside guest OS
 - Drag Hyper-V monitor to right side of virtual display driver monitor
 - Change Hyper-V monitor resolution to 800x600 or any minimal for reduce overhead
 - Set virtual display driver monitor as main display (primary monitor) 
-- Set multi display mode to "Extend these displays", allow OpenGL apps to run by not disabling Hyper-V monitor
+- Set multi display mode to "Extend these displays", allow OpenGL/Vulkan apps to run by not disabling Hyper-V monitor
 - Change virtual display monitor refresh rate to 90 Hz, or anything greater than 64 Hz
 - Optional: Disable "Enhance pointer precision" in guest OS to get better responsive mouse  
 You can leave it on in host OS if you prefer
