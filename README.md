@@ -13,6 +13,7 @@ If you have problems with certain apps, check `Solutions` folder, may be there i
 
 ## Verify gpu compatibility
 Install Windows feature "Windows Sandbox", open Sandbox and check if the sandbox is GPU accelerated.  
+Go to sandbox device manager and check your graphics card model appears under Display adapters category  
 If true, you gpu or driver verson does support GPU partition.  
 Otherwise give up and swap to newer GPU.
 
