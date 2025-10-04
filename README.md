@@ -16,7 +16,7 @@ Install Windows feature "Windows Sandbox", open Sandbox and check if the sandbox
 - `dxdiag`
 - Go to sandbox device manager and check your graphics card model  
 appears under Display adapters category
-- Just run a game or something
+- Just run a DirectX game or something
 
 If true, you gpu or driver verson does support GPU partition.  
 Otherwise give up and swap to newer GPU.
