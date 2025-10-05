@@ -140,7 +140,7 @@ Reference: [VALORANT OPTIMIZATION - HOW TO DISABLE WINDOWS 10 VSYNC USING A SECO
 
 ## Fix "slow connection" lag on excellent network frequently
 By disable memory compression  
-Run `Disable-MMAgent -mc` on Hyper-V host PC, and reboot host PC
+Run `Disable-MMAgent -mc` on Hyper-V host PC, and reboot host PC  
 If you feel that's not enough, also run this in guest OS
 
 It seems memory compression on host OS effect virtual machine realtime performance  
