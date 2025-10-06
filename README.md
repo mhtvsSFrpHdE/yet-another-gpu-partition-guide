@@ -16,6 +16,9 @@ Install Windows feature "Windows Sandbox", open Sandbox and check if the sandbox
 - `dxdiag`, Render tab has your graphics card model
 - Go to sandbox device manager and check your graphics card model  
 appears under Display adapters category
+- Edge browser has access to WebGL  
+Spinning fish https://webglsamples.org/aquarium/aquarium.html  
+or check gpu diag page edge://gpu, most of the item says `Hardware accelerated`
 
 If true, you gpu or driver verson does support GPU partition.  
 Otherwise give up and swap to newer GPU.
