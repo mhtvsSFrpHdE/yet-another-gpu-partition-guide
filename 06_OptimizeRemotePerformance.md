@@ -110,7 +110,13 @@ Moonlight settings:
 - Video bitrate: `Untouched or whatever you want`
 - Display mode: `Fullscreen`
 - V-Sync: `On`
-- Optimize mouse for remote desktop: `On`, `Off` if you are actually gaming, this sets unlimit mouse moving, good for FPS game
+- Frame pacing: `On`  
+If your video FPS match or less than your monitor refresh rate  
+for example `45/60 FPS` to `60 Hz`, set frame pacing to `On` to brings smooth visual  
+when video FPS greater than monitor Hz, for example `90/120 FPS` to `60 Hz`  
+you might want to set to `Off` for minimal latency
+- Optimize mouse for remote desktop: `On`  
+`Off` if you are actually gaming, this sets unlimit mouse moving, good for FPS game
 - Capture system keyboard shortcuts: `in fullscreen`
 
 For Video codec, it very depends on GPU
