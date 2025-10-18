@@ -221,7 +221,9 @@ Nvidia driver can't be installed directly and Nvidia Control Pannel UWP apps don
 You can edit control panel in host PC and copy entire `C:\ProgramData\NVIDIA Corporation` to same location in guest OS  
 then use Nvidia Profile Inspector in guest OS to adjust settings
 
-Frame limiter in driver settings is known to not work, you can use RivaTuner come with MSI Afterburner which also works fine
+Frame limiter in driver settings is known to not work, you can use RivaTuner come with MSI Afterburner which also works fine  
+There is a special option called "NVIDIA reflex" in RivaTuner settings, seems has lower latency compare to "async" mode  
+Reference: https://www.reddit.com/r/OptimizedGaming/comments/1i2de1p/psa_dont_use_rtsschange_your_rtss_framerate
 
 </details>
 
