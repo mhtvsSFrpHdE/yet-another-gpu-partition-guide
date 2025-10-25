@@ -7,8 +7,8 @@ For example
 However, due to several bugs in mid 2025, GPU partition is heavily rely on known good combination
 
 ## Known good combination
-- Host OS Windows 11 build `26100.4946` (1)
-- Guest OS Windows 11 build `26100.2033` (2)
+- Host OS Windows 11 `25H2` build `26200.6899` (1)
+- Guest OS Windows 11 `24H2` build `26100.2033` (2)
 - Nvidia Game Ready/Studio driver `580.97` (3)
 - Sunshine `v2025.628.4510`
 - Moonlight-qt `6.1.0`
@@ -18,6 +18,8 @@ However, due to several bugs in mid 2025, GPU partition is heavily rely on known
 When use `26100.2033` as host OS, `vmmem` process has memory leak issue  
 Microsoft support suggest upgrade to latest version, and indeed fixed
 
+Update: Although host `25H2` version not match with guest `24H2`, but guest OS runs fine
+
 When use `26100.4946` (the latest suggest by Microsoft support at time)  
 as guest OS, `Microsoft Hyper-V Video` / `Generic Monitor (HyperVMonitor)`  
 can't be lit on in guest OS and has nvlddmkm 153 when connect with enhanced mode  
@@ -25,7 +27,7 @@ but it runs fine as host OS
 
 Update: `25H2 26100.6901` as guest OS still has this issue
 
-The idea is run `26100.4946` as host so there is no memory leak  
+The idea is run `24H2 26100.4946` or `25H2 26200.6899` as host so there is no memory leak  
 and run `26100.2033` as guest so virtual monitor can be lit on to brings OpenGL and Vulkan support
 
 Reference  
