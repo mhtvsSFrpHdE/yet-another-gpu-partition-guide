@@ -23,6 +23,8 @@ as guest OS, `Microsoft Hyper-V Video` / `Generic Monitor (HyperVMonitor)`
 can't be lit on in guest OS and has nvlddmkm 153 when connect with enhanced mode  
 but it runs fine as host OS
 
+Update: `25H2 26100.6901` as guest OS still has this issue
+
 The idea is run `26100.4946` as host so there is no memory leak  
 and run `26100.2033` as guest so virtual monitor can be lit on to brings OpenGL and Vulkan support
 
