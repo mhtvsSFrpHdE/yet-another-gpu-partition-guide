@@ -50,19 +50,33 @@ The game has vertical sync on by default and no options to turn off, but we'll d
 Nvidia driver frame limiter v3 doesn't work  
 In-game frame limiter incompatible with Hyper-V virtual monitor or virtual display adapter
 result in corrupted image in motion (like moving camera)
+- Press Win+P shortcut, ensure running in PC screen only mode  
+change refresh rate to 60*2=120 Hz (1)
+- Check RTSS settings, don't use NVIDIA Reflex as FPS limiter, just use default async mode
+
+(1): I notice that since FFXIV 7.3 / dxvk-gplasync-v2.7.1-1  
+FFXIV with dxvk has image tearing even on screenshot, no matter how vsync setting is  
+tearing happens on image level instead of monitor level  
+Set virtual monitor refresh rate double of FPS limiter resolved this  
+These issue didn't exist on FFXIV 7.1
 
 ## How to start the game
 - Press Win+P shortcut, ensure running in Extend mode
-- Start the game
+- Start the game (1)
 - After game start, press Win+P, switch display mode from Extend to PC screen only  
 assume you've already set virtual display adapter as primary monitor  
 this will leave primary monitor on and Hyper-V video off
-- Check and ensure virtual display adapter in PC screen only mode running at 60 Hz  
+- Check and ensure virtual display adapter in PC screen only mode running at 60*2=120 Hz  
 which is, regularly in dual monitor setup it is run at 90 Hz, but now same as game FPS limiter
 
 With all these setup, now game will run and capture / stream smoothly at 60 FPS, and you have dxvk and optiscaler
 
 Do this quick with scripts under `Tools\Vulkan`
+
+(1): If game crashed without any information dialog  
+Try remove every config in `dxvk.conf` only keep `dxvk.enableAsync` line  
+Seems GPU spoofing no longer works on FFXIV 7.3  
+and you may running out of luck to enable DLSS and result in TSCMAA+Camera jitter
 
 ## dxvk.conf reference
 Place this file together with dxvk dlls aside game exe
