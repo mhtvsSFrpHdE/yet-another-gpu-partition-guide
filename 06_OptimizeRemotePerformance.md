@@ -136,13 +136,14 @@ Once connected, config dual monitor inside guest OS
 - Change Hyper-V monitor resolution to 800x600 or any minimal for reduce overhead
 - Set virtual display driver monitor as main display (primary monitor) 
 - Set multi display mode to "Extend these displays", allow OpenGL/Vulkan apps to run by not disabling Hyper-V monitor
-- Change virtual display monitor refresh rate to 90 Hz, or anything greater than 64 Hz
+- Change virtual display monitor refresh rate to 60*2=120 Hz for smoothness, or anything greater than 64 Hz
 - Optional: Disable "Enhance pointer precision" in guest OS to get better responsive mouse  
 You can leave it on in host OS if you prefer
 
-The 90 Hz hack fixed Sunshine capture performance drop when Hyper-V monitor is enabled  
+The 120 Hz hack fixed Sunshine capture performance drop when Hyper-V monitor is enabled  
 Maybe because it removed vertical sync for Windows dwm on second monitor  
-Reference: [VALORANT OPTIMIZATION - HOW TO DISABLE WINDOWS 10 VSYNC USING A SECOND MONITOR + REDUCE INPUT LAG](https://youtu.be/ij9nBgjESNQ?t=208)
+Reference: [VALORANT OPTIMIZATION - HOW TO DISABLE WINDOWS 10 VSYNC USING A SECOND MONITOR + REDUCE INPUT LAG](https://youtu.be/ij9nBgjESNQ?t=208)  
+Integer multiples seems has better smoothness
 
 ## Fix "slow connection" lag on excellent network frequently
 By disable memory compression  
