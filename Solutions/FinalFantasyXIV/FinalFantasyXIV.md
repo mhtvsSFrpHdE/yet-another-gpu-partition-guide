@@ -67,7 +67,7 @@ These issue didn't exist on FFXIV 7.1
 assume you've already set virtual display adapter as primary monitor  
 this will leave primary monitor on and Hyper-V video off
 - Check and ensure virtual display adapter in PC screen only mode running at 60*2=120 Hz  
-which is, regularly in dual monitor setup it is run at 90 Hz, but now same as game FPS limiter
+which is, regularly in dual monitor setup it is run at 120 Hz, but now match game FPS limiter
 
 With all these setup, now game will run and capture / stream smoothly at 60 FPS, and you have dxvk and optiscaler
 
