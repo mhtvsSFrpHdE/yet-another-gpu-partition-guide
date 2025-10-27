@@ -1,3 +1,10 @@
+# FFXIV - Troubleshoot
+**7.3**  
+After 7.3 update, seems game break compatibility with 10 series and old graphics card  
+even on non virtual, real PC, game won't start  
+for 1080 Ti, latest dxvk 2.7 can be used to start the game, or update graphics driver may help  
+for 760, dxvk 1.3 can be used to start the game, nvidia driver support has ended
+
 # FFXIV - Easiest setup
 - Press Win+P shortcut, switch to PC screen only  
 assume you've already set virtual display adapter as primary monitor  
