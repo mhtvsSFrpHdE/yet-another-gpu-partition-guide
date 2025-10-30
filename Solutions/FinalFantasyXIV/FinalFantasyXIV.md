@@ -51,6 +51,7 @@ but with Vulkan and dual monitor, video can't be reliable recorded by DXGI
 result in single monitor setup
 
 ## Vertical sync
+### Solution 1
 - Open nvidiaProfileInspector, locate `Final Fantasy XIV: A Realm Reborn`, change vertical sync to Force off  
 The game has vertical sync on by default and no options to turn off, but we'll do vsync on Moonlight side
 - In RivaTuner, set 60 FPS limit for FFXIV, don't use in-game frame limiter  
@@ -66,6 +67,11 @@ FFXIV with dxvk has image tearing even on screenshot, no matter how vsync settin
 tearing happens on image level instead of monitor level  
 Set virtual monitor refresh rate double of FPS limiter resolved this  
 These issue didn't exist on FFXIV 7.1
+### Solution 2
+- If want to use RTSS limiter in Reflex mode anyway, allow game to use vertical sync  
+by set Use the 3D application setting  
+the game doesn't work well when reflex injected and Vulkan without vsync at the same time
+- Don't use in-game frame limiter
 
 ## How to start the game
 - Press Win+P shortcut, ensure running in Extend mode
