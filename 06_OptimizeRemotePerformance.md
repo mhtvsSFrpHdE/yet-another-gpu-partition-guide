@@ -146,7 +146,16 @@ Reference: [VALORANT OPTIMIZATION - HOW TO DISABLE WINDOWS 10 VSYNC USING A SECO
 Integer multiples seems has better smoothness
 
 ## Fix "slow connection" lag on excellent network frequently
-By disable memory compression  
+### Host processing latency
+Hardware accelerated encoder has its capps, and may lag under heavy load peaks,  
+for example Nvidia P7 slowest mode has more "slow connection" issue compare to P1 fastest,  
+thus don't use any other than P1 is resonable  
+Disable Two-pass, Spatial AQ also helps in some case,  
+just make sure "Host processing latency (max)" is under 16.6 ms,  
+I suggest keep it below 12 ~ 13 ms (12 / 16 = 75% load) while you tune performance settings  
+Press "Ctrl+Alt+Shift+S toggle performance static and check max value in the middle of min/max/average
+
+### Memory compression
 Run `Disable-MMAgent -mc` on Hyper-V host PC, and reboot host PC  
 If you feel that's not enough, also run this in guest OS
 
