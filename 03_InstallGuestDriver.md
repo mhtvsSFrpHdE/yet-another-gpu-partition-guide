@@ -33,7 +33,7 @@ $hostDriverStoreDir = Join-Path $hostDriverStoreDir $driverInstallDirName
 $driverInstallDir
 $hostDriverStoreDir
 
-Copy-item -Force -Recurse "$driverInstallDir" -Destination "$hostDriverStoreDir"
+New-Item -Path $hostDriverStoreDir -ItemType SymbolicLink -Value $driverInstallDir
 ```
 
 ## Install extra files
