@@ -50,13 +50,6 @@ Next time remember to backup system partition before click on the cursed `Downlo
 Use `Backup and Restore (Windows 7)`, `Create a system image`  
 or `export virtual machine` to somewhere in case GPU Partition virtual machine doesn't support checkpoint
 
-## Prepare host driver export dir
-```
-$driverExportDir = "C:\GpuDriver"
-Remove-Item -LiteralPath "$driverExportDir" -Force -Recurse
-New-Item -ItemType Directory -Path "$driverExportDir"
-```
-
 ## Get host gpu information
 ```
 Get-VMHostPartitionableGpu | Select-Object -Property Name,ValidPartitionCounts
@@ -73,6 +66,13 @@ $targetValidPartitionCounts = $targetGpu.ValidPartitionCounts[$targetGpuPartitio
 Set-VMHostPartitionableGpu -Name $targetGpuName -PartitionCount $targetValidPartitionCounts
 ```
 
+## Prepare host driver export dir
+```
+$driverExportDir = "C:\GpuDriver"
+Remove-Item -LiteralPath "$driverExportDir" -Force -Recurse
+New-Item -ItemType Directory -Path "$driverExportDir"
+```
+
 ## Preview which host gpu driver to export
 ```
 $drivers = Get-WindowsDriver -Online -All
@@ -85,6 +85,7 @@ $targetDriver
 ```
 
 ## If multiple version exist, choose the one currently active on your system
+Or you can uninstall unwanted by type `pnputil /delete-driver oemXX.inf`
 ```
 $targetDriverIndex = 0
 $targetDriverFileName = $targetDriver[$targetDriverIndex].Driver
