@@ -77,15 +77,16 @@ New-Item -ItemType Directory -Path "$driverExportDir"
 ```
 $drivers = Get-WindowsDriver -Online -All
 $targetDriver = $drivers | Where-Object { $_.ClassName -EQ "Display" -and $_.ProviderName -Like "NVIDIA" }
-```
-
-## Confirm export which driver
-```
 $targetDriver
 ```
+If multiple version exist, choose the one currently active on your system  
+Or you may want to uninstall unwanted driver by type (optional, carefully)
+```
+pnputil /delete-driver oemXX.inf
+```
+then redo preview step
 
-## If multiple version exist, choose the one currently active on your system
-Or you can uninstall unwanted by type `pnputil /delete-driver oemXX.inf`
+## Confirm export which driver
 ```
 $targetDriverIndex = 0
 $targetDriverFileName = $targetDriver[$targetDriverIndex].Driver
