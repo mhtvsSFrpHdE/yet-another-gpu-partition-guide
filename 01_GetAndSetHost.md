@@ -1,54 +1,24 @@
 ## Prerequisite
-Guest OS and Host OS should run exact same version of Windows and driver  
-For example
-- Windows 11 OS Build 26100.2033
-- Nvidia 572.16
-
+I believe the only restriction is driver version should be same  
+Guest OS and Host OS version is not necessary the same  
 However, due to several bugs in mid 2025, GPU partition is heavily rely on known good combination
 
 ## Known good combination
-- Host OS Windows 11 `25H2` build `26200.6899` (1)
-- Guest OS Windows 11 `24H2` build `26100.2033` (2)
-- Nvidia Game Ready/Studio driver `580.97` (3)
-- Sunshine `v2025.628.4510`
+- Host OS Windows 11 `25H2 26200.7462`
+- Guest OS Windows 11 `25H2 26200.7462`
+- Nvidia Game Ready/Studio driver `581.57` (1)
+
+Other, for reference, usually not cause problems
+- Sunshine `v2025.924.154138`
 - Moonlight-qt `6.1.0`
 - GPU EVGA GTX 1080 Ti SC Black Edition w/ iCX Cooler 11G-P4-6393-KR
 
-### (1), (2)
-When use `26100.2033` as host OS, `vmmem` process has memory leak issue  
-Microsoft support suggest upgrade to latest version, and indeed fixed
-
-Update: Although host `25H2` version not match with guest `24H2`, but guest OS runs fine
-
-When use `26100.4946` (the latest suggest by Microsoft support at time)  
-as guest OS, `Microsoft Hyper-V Video` / `Generic Monitor (HyperVMonitor)`  
-can't be lit on in guest OS and has nvlddmkm 153 when connect with enhanced mode  
-but it runs fine as host OS
-
-Update: `25H2 26100.6901` as guest OS still has this issue
-
-The idea is run `24H2 26100.4946` or `25H2 26200.6899` as host so there is no memory leak  
-and run `26100.2033` as guest so virtual monitor can be lit on to brings OpenGL and Vulkan support
-
-Reference  
-[[Windows Server 2025 Host] KB5062553 (and June’s) Breaks GPU-P to Windows 11 VM – Anyone Else?](https://www.reddit.com/r/HyperV/comments/1lvduk4/windows_server_2025_host_kb5062553_and_junes)
-
-### (3)
+### (1)
 I recommend use Studio driver so you don't need to bother with Dynamic Range: Limited 16-235 vs Full 0-255  
 Studio default is 0-255
 
 ### Where to get certain version of Windows
-- Microsoft has a page that lists Windows build number [windows-11-version-24h2-update-history](https://support.microsoft.com/en-us/topic/windows-11-version-24h2-update-history-0929c747-1815-4543-8461-0160d16f15e5)
-- On the page looking for `OS Build <version number>`, like 26100.2033
-- Find build number in this website https://files.rg-adguard.net/version/f0bd8307-d897-ef77-dbd6-216fefbe94c5
-- Follow instructions on page to download file
-- Try mount the iso in system and run `setup.exe` directly to see if you can downgrade without reinstall
-- If downgrade in-place upgrade failed, no choice but have to reinstall
-- Set Windows Update group policy `Configure Automatic Updates` to `2 - Notify for download and auto install`  
-to prevent unexpected version number change  
-Next time remember to backup system partition before click on the cursed `Download & install all` button in Windows Update  
-Use `Backup and Restore (Windows 7)`, `Create a system image`  
-or `export virtual machine` to somewhere in case GPU Partition virtual machine doesn't support checkpoint
+https://github.com/mhtvsSFrpHdE/yet-another-gpu-partition-guide/wiki/Where-to-get-certain-version-of-Windows
 
 ## Get host gpu information
 ```
