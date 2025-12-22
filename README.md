@@ -13,6 +13,8 @@ If you have problems with certain apps, check `Solutions` folder, may be there i
 
 ## Verify gpu compatibility
 Install Windows feature "Windows Sandbox", open Sandbox and check if the sandbox is GPU accelerated.  
+These are some common method:
+- Task manager has graphics card model
 - `dxdiag`, Render tab has your graphics card model
 - Go to sandbox device manager and check your graphics card model  
 appears under Display adapters category
