@@ -37,7 +37,8 @@ New-Item -Path $hostDriverStoreDir -ItemType SymbolicLink -Value $driverInstallD
 ```
 
 ## Install extra files
-Run `C:\GpuDriverExtra\install.ps1` with admin permission
+First time install run `C:\GpuDriverExtra\install_with_data.ps1` with admin permission  
+On upgrade driver, run `C:\GpuDriverExtra\install.ps1` to skip copy `C:\ProgramData\NVIDIA Corporation`
 
 ## Finish
 Reboot now, after reboot it should work  
