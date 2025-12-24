@@ -13,7 +13,7 @@ if don't want to keep driver settings, `C:\GpuDriverExtra\uninstall_z_remove_dat
 - Delete `C:\GpuDriver` and `C:\GpuDriverExtra`
 - Reboot
 
-# If want to completely remove gpu from VM
+## If want to completely remove gpu from VM
 Find a VM hasn't add gpu partition as "sample"
 ```
 $sampleVM = Get-VM "GuestVmNoGpu"
