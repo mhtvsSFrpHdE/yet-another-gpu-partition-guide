@@ -10,7 +10,7 @@ $vmName = "GuestVmWithGpu"
 Remove-VMGpuPartitionAdapter -VMName $vmName
 ```
 
-### Safe mode / Uninstall / Update driver
+### Safe mode and uninstall
 If simply remove virtual GPU adapter doesn't work  
 You can use virtual machine reset button serval times on boot phase when you see Windows icon  
 Until "Preparing Automatic Repair" shows, and "Startup Settings", "Enable Safe Mode" in these menu
@@ -22,7 +22,7 @@ $targetDriver = $drivers | Where-Object { $_.ClassName -EQ "Display" -and $_.Pro
 $targetDriver
 ```
 
-If there is nothing, you may install it again since it doesn't survived after large Windows update  
+If there is nothing, you may install it again since it doesn't survived on large Windows update  
 After install, shutdown and exit safe mode, add back virtual GPU adapter to see if works
 ```
 $driverExportDir = "C:\GpuDriver"
@@ -54,16 +54,13 @@ $hostDriverStoreDir
 Remove-Item -LiteralPath "$hostDriverStoreDir" -Force -Recurse
 ```
 
-Run `C:\GpuDriverExtra\uninstall.ps1` with admin permission to remove extra files
+Run `C:\GpuDriverExtra\uninstall_keep_data.ps1` with admin permission to remove extra files  
+If don't want to keep driver settings, run `uninstall_z_remove_data.ps1` to delete `C:\ProgramData\NVIDIA Corporation`
 
 ## I'm on desktop, but can't get GPU Partition work after Windows update
-Double check your guest OS and host OS running same version Windows and driver  
-For example
-- Windows 11 OS Build 26100.2033
-- Nvidia 572.16
+Windows Update may break GPU partition and happened before, check
+https://github.com/mhtvsSFrpHdE/unofficial-gpu-partition-document/wiki/Known-good-combination
+and Downgrade to known good version and see if work
 
-Downgrade GPU driver first to a known good version and see if work  
-If not, grab a early published Windows 11 24H2 disk ISO  
-Use it to "upgrade" current system and keep all data  
-After "upgrade", your OS patch level will back to early stage of 24H2  
-You may google how to exclude certain Windows update and install the rest, or don't install update at all
+You may google how to exclude certain Windows update and install the rest, or don't install update at all  
+also verify update work or not in test environment before deploy them to production PC
