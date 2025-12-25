@@ -8,7 +8,9 @@ Get-ClusterResource -name vmname | Set-ClusterParameter -Name "OfflineAction" -V
 https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/partition-assign-vm-gpu?tabs=powershell
 
 **DO NOT** use dynamic RAM, on LTSC 24H2 host, when set dynamic RAM for VM has GpuPartitionAdapeter  
-It will show a hint says doesn't support dynamic RAM.
+It will show a hint says doesn't support dynamic RAM.  
+However, I discover I can actually adjust fixed RAM value while virtual machine is running  
+and value can apply immediately without need to shutdown VM
 
 ## Set guest
 ```
