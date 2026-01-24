@@ -1,44 +1,9 @@
 ## Install driver
-```
-# Copy driver files from GetAndSetHost $driverExportDir to guest OS
-$driverExportDir = "C:\GpuDriver"
-pnputil /add-driver "$driverExportDir\*.inf" /install
-```
+Although Nvidia Control Panel can't be installed directly  
+but use Nvidia Profile Inspector will possible
 
-## Preview installed driver list
-```
-$drivers = Get-WindowsDriver -Online -All
-$targetDriver = $drivers | Where-Object { $_.ClassName -EQ "Display" -and $_.ProviderName -Like "NVIDIA" }
-$targetDriver
-```
-
-## If there is any unwanted or mismatch version, remove it and refresh driver list
-```
-pnputil /delete-driver oem<XX>.inf
-$drivers = Get-WindowsDriver -Online -All
-$targetDriver = $drivers | Where-Object { $_.ClassName -EQ "Display" -and $_.ProviderName -Like "NVIDIA" }
-$targetDriver
-```
-
-## Copy driver to HostDriverStore
-```
-$targetDriverIndex = 0
-$driverInstallDir = $targetDriver[$targetDriverIndex].OriginalFileName
-$driverInstallDir = Split-Path $driverInstallDir
-$driverInstallDirName = Split-Path -Leaf $driverInstallDir
-$hostDriverStoreDir = "C:\Windows\System32\HostDriverStore\FileRepository"
-$hostDriverStoreDir = Join-Path $hostDriverStoreDir $driverInstallDirName
-
-# Preview and verify path
-$driverInstallDir
-$hostDriverStoreDir
-
-New-Item -Path $hostDriverStoreDir -ItemType SymbolicLink -Value $driverInstallDir
-```
-
-## Install extra files
-First time install run `C:\GpuDriverExtra\install_with_data.ps1` with admin permission  
-On upgrade driver, run `C:\GpuDriverExtra\install.ps1` to skip copy `C:\ProgramData\NVIDIA Corporation`
+First time install, run `C:\GpuDriver\install_with_data.ps1` with admin permission  
+On upgrade driver, run `C:\GpuDriver\install.ps1` to skip `C:\ProgramData\NVIDIA Corporation`
 
 ## Finish
 Reboot now, after reboot it should work  
@@ -47,8 +12,10 @@ You **MUST** record your Windows version and driver version like this
 - Windows 11 OS Build 26100.2033
 - Nvidia 572.16
 
-You'll need them if GPU Partition break by Windows or driver update so you can perform a downgrade to known good version combination
+You'll need them if GPU Partition break by Windows or driver update  
+so you can perform a downgrade to known good version combination
 
-Installed driver may not be reserved on large Windows update  
-It's recommended to keep driver export folder copied to guest OS, for future use  
+It's recommended to keep GpuDriver folder copied to guest OS for uninstall  
+at least keep `ps1` files named `uninstall...` so you can uninstall files before upgrade driver
+
 See "Troubleshoot - Emergency recovery" for more information, and about downgrade

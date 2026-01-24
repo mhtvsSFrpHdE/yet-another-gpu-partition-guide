@@ -36,40 +36,17 @@ $targetValidPartitionCounts = $targetGpu.ValidPartitionCounts[$targetGpuPartitio
 Set-VMHostPartitionableGpu -Name $targetGpuName -PartitionCount $targetValidPartitionCounts
 ```
 
-## Prepare host driver export dir
-```
-$driverExportDir = "C:\GpuDriver"
-Remove-Item -LiteralPath "$driverExportDir" -Force -Recurse
-New-Item -ItemType Directory -Path "$driverExportDir"
-```
-
-## Preview which host gpu driver to export
-```
-$drivers = Get-WindowsDriver -Online -All
-$targetDriver = $drivers | Where-Object { $_.ClassName -EQ "Display" -and $_.ProviderName -Like "NVIDIA" }
-$targetDriver
-```
-If multiple version exist, choose the one currently active on your system  
-Or you may want to uninstall unwanted driver by type (optional, carefully)
-```
-pnputil /delete-driver oemXX.inf
-```
-then redo preview step
-
-## Confirm export which driver
-```
-$targetDriverIndex = 0
-$targetDriverFileName = $targetDriver[$targetDriverIndex].Driver
-pnputil /export-driver "$targetDriverFileName" "$driverExportDir"
-```
-
-Copy driver files from $driverExportDir to guest OS  
-Go to SetGuest before boot into VM
-
-## Collect extra files
+## Collect files
 Open dxdiag on host PC, Save All Information as `DxDiag.txt`, put together with `Tools\CollectFiles.ps1`  
 Open `DxDiag.txt` and looking for your graphics card name, copy it and edit to first line of `Tools\CollectFiles.ps1`
 
-Run `Tools\CollectFiles.ps1`, files will be saved to `C:\GpuDriverExtra`  
-This folder also need copy to guest OS later, allow guest OS to access Nvidia Control Panel and driver settings  
-Although Nvidia Control Panel can't be installed directly, but use Nvidia Profile Inspector will possible
+Run `Tools\CollectFiles.ps1`, files will be saved to `C:\GpuDriver`  
+This folder need copy to guest OS later
+
+## What does collect files do
+- Read `DxDiag.txt`, know what file belones driver
+- Copy most driver files to `C:\GpuDriver`  
+  and will copy back to original location on install to guest
+- Copy files in `C:\Windows\System32\DriverStore` to `C:\GpuDriver`  
+  but copy to `C:\Windows\System32\HostDriverStore` on install to guest
+- Generate install and uninstall script
