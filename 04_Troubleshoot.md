@@ -46,6 +46,7 @@ $hostDriverStoreDir
 Remove-Item -LiteralPath "$hostDriverStoreDir" -Force -Recurse
 ```
 
+Reboot to safe mode  
 Run `C:\GpuDriver\uninstall_keep_data.ps1` with admin permission to remove extra files  
 If don't want to keep driver settings, run `uninstall_z_remove_data.ps1` to delete `C:\ProgramData\NVIDIA Corporation`
 
