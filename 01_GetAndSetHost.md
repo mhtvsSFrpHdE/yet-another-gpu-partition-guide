@@ -4,8 +4,8 @@ Guest OS and Host OS version is not necessary the same
 However, due to several bugs in mid 2025, GPU partition is heavily rely on known good combination
 
 ## Known good combination
-- Host OS Windows 11 `25H2 26200.7462`
-- Guest OS Windows 11 `25H2 26200.7462`
+- Host OS Windows 11 `25H2 26200.7840`
+- Guest OS Windows 11 `25H2 26200.7840`
 - Nvidia Game Ready/Studio driver `581.57` (1)
 
 Other, for reference, usually not cause problems
