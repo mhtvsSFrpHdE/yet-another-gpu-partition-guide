@@ -6,7 +6,7 @@ However, due to several bugs in mid 2025, GPU partition is heavily rely on known
 ## Known good combination
 - Host OS Windows 11 `25H2 26200.7840`
 - Guest OS Windows 11 `25H2 26200.7840`
-- Nvidia Game Ready/Studio driver `581.57` (1)
+- Nvidia Game Ready/Studio driver `577.00/581.57` (1)
 
 Other, for reference, usually not cause problems
 - Sunshine `v2025.924.154138`
@@ -16,6 +16,8 @@ Other, for reference, usually not cause problems
 ### (1)
 I recommend use Studio driver so you don't need to bother with Dynamic Range: Limited 16-235 vs Full 0-255  
 Studio default is 0-255
+
+[Driver Recommendations for Series 9/10 Geforce GPU owners](https://www.reddit.com/r/nvidia/comments/1q5a3zx/comment/o0arkk2/) at the moment of update support ended
 
 ### Where to get certain version of Windows
 https://github.com/mhtvsSFrpHdE/yet-another-gpu-partition-guide/wiki/Where-to-get-certain-version-of-Windows
