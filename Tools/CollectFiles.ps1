@@ -80,10 +80,10 @@ foreach ($file in $inplaceFilesToCollectArray) {
     "Copy-Item -Path `"$dest`" -Destination `"$src`"" | Out-File $installWithDataScriptPath -Append
 
     # uninstall command
-    "Remove-Item -Path `"$dest`"" | Out-File $uninstallScriptPath -Append
+    "Remove-Item -Path `"$src`"" | Out-File $uninstallScriptPath -Append
 
     # upgrade command
-    "Remove-Item -Path `"$dest`"" | Out-File $uninstallKeepDataScriptPath -Append
+    "Remove-Item -Path `"$src`"" | Out-File $uninstallKeepDataScriptPath -Append
 }
 foreach ($file in $hostDriverStoreFilesToCollectArray) {
     $src = $file[0]
