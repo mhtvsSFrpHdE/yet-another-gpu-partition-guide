@@ -201,7 +201,7 @@ If this value is not equal to `-96 dB`...
 **these preamp action and volume settings will damage physical audio device!**  
 Only plug physical audio device to PC where moonlight running  
 or use the mute while streaming feature to prevent modified audio singal send to these physical device
-- Check sunshine settings, enable and use Steam Streaming Speakers to transfer audio, don't use your real sound card
+- Check sunshine settings, enable and use Steam Streaming Speakers or VB Hifi Cable to transfer audio, don't use your real sound card
 - Install Equalzer APO inside guest OS where sunshine installed, choose Steam Streaming Speakers while install
 - Greater than `-96`, for example `-65.2`: Add `96 - 65.2 - 0.1` = `30.7 dB` preamp gain to Steam Streaming Speakers
 - Less than `-96`, for example `-128`: Add `-1 * (128 - 96)` = `-32 dB` preamp gain to Steam Streaming Speakers  
