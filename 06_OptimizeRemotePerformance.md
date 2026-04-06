@@ -93,8 +93,9 @@ you can't mouse click via basic mode after having dual monitor is a normal behav
 
 ## Install virtual sound card on guest OS
 Hyper-V doesn't have sound card, Sunshine/Moonlight require a sound card to capture sound  
-before I use [VB-Audio Hi-Fi Cable](https://vb-audio.com/Cable/#DownloadASIOBridge)  
-but now I find sunshine already provide "Steam Streaming Speakers" as a choice  
+I use [VB-Audio Hi-Fi Cable](https://vb-audio.com/Cable/#DownloadASIOBridge)  
+but later I find if **Valve Steam game platform is installed**,  
+sunshine provide "Steam Streaming Speakers" as a choice  
 there is no sound quality difference in theory in my opinion
 
 You may want to change it's playback and record sample rate to something like  
