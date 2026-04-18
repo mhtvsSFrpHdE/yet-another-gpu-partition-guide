@@ -1,12 +1,14 @@
 ## Prerequisite
 I believe the only restriction is driver version should be same  
 Guest OS and Host OS version is not necessary the same  
-However, due to several bugs in mid 2025, GPU partition is heavily rely on known good combination
+However, due to several bugs in mid 2025, GPU partition is heavily rely on known good combination to be stable
 
 ## Known good combination
+Combination not listed here not means won't work just nobody test and report  
+Here only list latest tested, check more combination at [wiki](https://github.com/mhtvsSFrpHdE/unofficial-gpu-partition-document/wiki/Known-good-combination)
 - Host OS Windows 11 `25H2 26200.7840`
-- Guest OS Windows 11 `25H2 26200.7840`
-- Nvidia Game Ready/Studio driver `577.00/581.57` (1)
+- Guest OS Windows 11 `25H2 26200.7840` / `24H2 26100.7840`
+- Nvidia GeForce Security Update Driver `582.28` (1)
 
 Other, for reference, usually not cause problems
 - Sunshine `v2025.924.154138`
@@ -14,10 +16,12 @@ Other, for reference, usually not cause problems
 - GPU EVGA GTX 1080 Ti SC Black Edition w/ iCX Cooler 11G-P4-6393-KR
 
 ### (1)
-I recommend use Studio driver so you don't need to bother with Dynamic Range: Limited 16-235 vs Full 0-255  
-Studio default is 0-255
+Nvidia add virtualization support to customer graphics card in driver version `465.89`  
+Anything below that won't work  
+It turns out Nvidia driver version doesn't cause problems, mainly Windows bug
 
-[Driver Recommendations for Series 9/10 Geforce GPU owners](https://www.reddit.com/r/nvidia/comments/1q5a3zx/comment/o0arkk2/) at the moment of update support ended
+Series 9/10 Geforce GPU owners: Use `582.28` if run latest Windows 11  
+this version contains `581.94` hotfix
 
 ### Where to get certain version of Windows
 https://github.com/mhtvsSFrpHdE/yet-another-gpu-partition-guide/wiki/Where-to-get-certain-version-of-Windows
