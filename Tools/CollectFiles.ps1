@@ -47,6 +47,7 @@ foreach ($line in $dxDiagFile) {
         }
         else{
             $fileCopyDest = $fileToCollect -ireplace [regex]::Escape("C:\WINDOWS"), "C:\GpuDriver\Windows"
+            $fileCopyDest = $fileCopyDest -ireplace [regex]::Escape("C:\Program Files"), "C:\GpuDriver\Program Files"
             $inplaceFilesToCollectArray += , (@($fileToCollect, $fileCopyDest))
         }
     }
