@@ -3,6 +3,8 @@
 1. Edit copied file with `notepad.exe`, modify shortcut path to your game
 1. Modify `gameLnk` to shortcut of your game or launcher, can be regular `.lnk` or `.url` for Steam games
 1. Modify `gameProcessName` to game acutal process name after launch
+1. Modify `refreshRateSwitchTo` to another refresh rate your virtual monitor support
+1. Modify `refreshRateSwitchBack` to your current refresh rate
 1. Modify `vulkanInitDelay` if necessary
 1. Save, double click on your file to check result
 
