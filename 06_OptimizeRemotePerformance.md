@@ -156,6 +156,13 @@ just make sure "Host processing latency (max)" is under 16.6 ms,
 I suggest keep it below 12 ~ 13 ms (12 / 16 = 75% load) while you tune performance settings  
 Press "Ctrl+Alt+Shift+S toggle performance static and check max value in the middle of min/max/average
 
+### GPU clock speed
+For NVIDIA, there is "Graphics", "Memory", "Video" 3 type of clocks in software "HWMonitor".  
+You can only adjust "Graphics" and "Memory" clock speed by using NVIDIA control panel Power Management or Tools like MSI Afterburner,  
+but no option to adjust "Video" clock speed, instead it will adjust itself based on what "Graphics" clock speed.
+
+Try not set too low "Graphics" clock speed and see if there is any improvements.
+
 ### Memory compression
 Run `Disable-MMAgent -mc` on Hyper-V host PC, and reboot host PC  
 If you feel that's not enough, also run this in guest OS
