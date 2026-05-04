@@ -1,3 +1,9 @@
+# Or you can try NVIDIA settings by first
+Seems NVIDIA has new fancy stuff available in `nvidiaProfileInspector` that also fix this issue  
+`Vulkan/OpenGL Present Method - Flags`, `0x00080004 Allow promoting DXVK to DXGI/DirectFlip`
+
+If your driver version too old and not getting this update, the script should help
+
 # Usage
 1. Copy `StartGame.bat` and name it to you want
 1. Edit copied file with `notepad.exe`, modify shortcut path to your game
