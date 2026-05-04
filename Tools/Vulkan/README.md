@@ -1,6 +1,7 @@
 # Or you can try NVIDIA settings by first
 Seems NVIDIA has new fancy stuff available in `nvidiaProfileInspector` that also fix this issue  
-`Vulkan/OpenGL Present Method - Flags`, `0x00080004 Allow promoting DXVK to DXGI/DirectFlip`
+`Vulkan/OpenGL Present Method - Flags`, `0x00080004 Allow promoting DXVK to DXGI/DirectFlip`  
+I will set this per game instead of global
 
 If your driver version too old and not getting this update, the script should help
 
