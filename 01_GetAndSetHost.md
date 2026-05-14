@@ -1,13 +1,17 @@
 ## Prerequisite
 I believe the only restriction is driver version should be same  
 Guest OS and Host OS version is not necessary the same  
-However, due to several bugs in mid 2025, GPU partition is heavily rely on known good combination to be stable
+Due to several bugs in mid 2025, GPU partition may rely on known good combination to be stable  
+If you encountered black screen on boot issue, try use known good combination to deploy  
+Host OS and driver version doesn't matter, some guest OS version won't work  
+Microsoft has fixed the issue in later version
 
 ## Known good combination
 Combination not listed here not means won't work just nobody test and report  
-Here only list latest tested, check more combination at [wiki](https://github.com/mhtvsSFrpHdE/unofficial-gpu-partition-document/wiki/Known-good-combination)
-- Host OS Windows 11 `25H2 26200.7840`
-- Guest OS Windows 11 `25H2 26200.7840` / `24H2 26100.7840`
+Here only list latest tested, check history combination at [wiki](https://github.com/mhtvsSFrpHdE/unofficial-gpu-partition-document/wiki/Known-good-combination)
+- Host OS Windows 11 `25H2 26200.7840` / `25H2 26200.8457`
+- Guest OS Windows 11 `25H2 26200.7840` / `25H2 26200.8457` / `24H2 26100.7840` / `24H2 26100.8457` (2)
+- (2): Any host version with any guest version
 - Nvidia GeForce Security Update Driver `582.28` (1)
 
 Other, for reference, usually not cause problems
