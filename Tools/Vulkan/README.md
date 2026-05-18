@@ -1,11 +1,15 @@
-# Or you can try NVIDIA settings by first
-Seems NVIDIA has new fancy stuff available in `nvidiaProfileInspector` that also fix this issue  
+# Try NVIDIA and vdd settings by first
+NVIDIA has new fancy stuff available in `nvidiaProfileInspector` that help this issue  
 `Vulkan/OpenGL Present Method - Flags`, `0x00080004 Allow promoting DXVK to DXGI/DirectFlip`  
-I will set this per game instead of global
+After that, set virtual display driver to 180 Hz in case game running at 60 FPS.
 
-If your driver version too old and not getting this update, the script should help
+To enable 180 Hz (also 240 Hz if you're mad), open "Virtual Driver Control" of MikeTheTech vdd,  
+"Tools" menu, XML Editor, Switch to Refresh Rates, Type 180 and click on Add,  
+Save Changes, close XML editor, "Virtual Display Driver" menu, System, Restart Driver,  
+now 180 Hz will be available in Windows 11 Settings app. It's Integer multiples of 60 Hz.
 
-# Usage
+# Deprecated usage of legacy script
+The script in this folder in long time is used to fix vsync issue of Vulkan, but now newer solution has provided.
 1. Copy `StartGame.bat` and name it to you want
 1. Edit copied file with `notepad.exe`, modify shortcut path to your game
 1. Modify `gameLnk` to shortcut of your game or launcher, can be regular `.lnk` or `.url` for Steam games
