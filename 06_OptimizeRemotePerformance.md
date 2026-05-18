@@ -268,11 +268,8 @@ Also there is a config in Nvidia Profile Inspector to allow you turn on shader c
 <details>
     <summary><b>Vulkan applications</b></summary>
 
-Vulkan doesn't play well with sunshine DXGI capture and dual monitor setup at same time  
-You need to start Vulkan apps in dual monitor, after open Vulkan,  
-turn off Hyper-V Video secondary monitor temporary to get best video capture performance  
-After Vulkan apps exit, switch back to dual monitor to allow you open other non DirectX apps  
-I have scripts do this quick in `Tools\Vulkan`
+Vulkan especially dxvk doesn't play well with sunshine DXGI capture and dual monitor setup at same time  
+See `Tools\Vulkan` for more information
 
 </details>
 
